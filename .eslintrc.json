@@ -18,6 +18,7 @@
     ],
     "@typescript-eslint/indent": ["off"],
     "react/jsx-indent": ["off"],
-    "react/jsx-indent-props": ["off"]
+    "react/jsx-indent-props": ["off"],
+    "jsx-a11y/anchor-is-valid": ["off"]
   }
 }

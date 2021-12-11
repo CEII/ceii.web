@@ -5,6 +5,9 @@ module.exports = {
   ],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ['Montserrat', 'sans-serif']
+    },
     extend: {
       colors: {
         'primary': '#033c71',

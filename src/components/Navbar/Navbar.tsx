@@ -2,7 +2,7 @@ import { FunctionComponent, useState } from 'react';
 import Menu from '@components/Menu';
 
 const Navbar: FunctionComponent = () => {
-    const [active, setActive] = useState(true);
+    const [active, setActive] = useState(false);
     const bar = 'transition-all duration-700 bg-white w-8 h-1 rounded-full';
 
     return (
@@ -16,7 +16,7 @@ const Navbar: FunctionComponent = () => {
                 <div className={`${bar} ${active && 'transform-gpu rotate-180'}`} />
                 <div className={`${bar} ${active && 'opacity-0'}`} />
             </button>
-            { active && <Menu /> }
+            <Menu active={active} />
         </div>
     );
 };
