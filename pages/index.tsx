@@ -27,7 +27,10 @@ const Home: NextPage = () => {
             <Head>
                 <title>Home</title>
             </Head>
-            <Spinner />
+            <div>
+                Probando el cambio
+            </div>
+
         </>
     );
 }
