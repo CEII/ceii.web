@@ -1,7 +1,8 @@
 import { FunctionComponent } from 'react';
+import { ISvgProps } from 'src/interfaces/svg.interface';
 
-const LostFido: FunctionComponent = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="195" height="181" viewBox="0 0 195 181" fill="none">
+const LostFido: FunctionComponent<ISvgProps> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="195" height="181" viewBox="0 0 195 181" fill="none" className={className}>
         <path d="M71.4131 51.3385V7.07549V0H40.6429C9.97151 3.5542 0.767883 28.3568 0 40.3139V165.698C46.7312 193.342 90.3359 174.693 106.297 161.914V96.4241C104.454 70.4916 82.2732 55.5618 71.4131 51.3385Z" fill="white" />
         <path d="M71.4131 7.24004V0H40.4784C9.54369 3.94911 0.603337 28.7408 0 40.6429V165.863C10.7942 172.445 25.1756 177.052 33.8965 178.533V164.217C31.5271 165.139 27.6438 165.588 25.9983 165.698V73.5522C26.6565 68.0235 31.4283 64.557 33.732 63.5149V28.9602C35.8382 11.5841 48.8703 7.24004 55.123 7.24004H71.4131Z" fill="black" />
         <path d="M27.3147 74.2365L27.6438 164.079C52.1283 161.709 59.8949 131.389 60.7176 116.525V85.7547C58.4798 67.8521 43.2208 64.1443 35.8711 64.5283C30.0791 66.2395 27.7535 71.7134 27.3147 74.2365Z" fill="black" />
