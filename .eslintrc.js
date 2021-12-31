@@ -64,7 +64,7 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        'singleQuote': true
+        'singleQuote': true,
       }
     ],
     'react-hooks/rules-of-hooks': 2,
@@ -73,8 +73,8 @@ module.exports = {
       'error',
       {
         'namedComponents': 'arrow-function',
-        'unnamedComponents': 'arrow-function'
-      }
+        'unnamedComponents': 'arrow-function',
+      },
     ],
     'no-bitwise': 2,
   },
