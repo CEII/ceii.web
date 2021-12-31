@@ -64,16 +64,16 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
-        'singleQuote': true,
-      }
+        singleQuote: true,
+      },
     ],
     'react-hooks/rules-of-hooks': 2,
     'react-hooks/exhaustive-deps': 2,
     'react/function-component-definition': [
       'error',
       {
-        'namedComponents': 'arrow-function',
-        'unnamedComponents': 'arrow-function',
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
       },
     ],
     'no-bitwise': 2,
