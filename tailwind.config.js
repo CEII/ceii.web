@@ -4,15 +4,16 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    colors: {
-      primary: '#23272C',
-      accent: '#ED554C',
-      secondary: '#033C71',
+    extend: {
+      colors: {
+        primary: '#23272C',
+        accent: '#ED554C',
+        secondary: '#033C71',
+      },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      },
     },
-    fontFamily: {
-      sans: ['Montserrat', 'sans-serif'],
-    },
-    extend: {},
   },
   plugins: [],
 };
