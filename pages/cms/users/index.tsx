@@ -1,7 +1,8 @@
-export default function index() {
-    return(
+import type {NextPage} from 'next';
+
+const users: NextPage = () => {
         <div>
-            <h1>Hola cms/users</h1>
+            <h1>usuarios ruta:/cms/users</h1>
         </div>
-    )
 }
+export default users;
