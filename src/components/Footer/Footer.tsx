@@ -4,7 +4,7 @@ import { faFacebookSquare, faInstagram, faGithubSquare, faDiscord } from "@forta
 
 const Footer : FunctionComponent = () => {
     return (
-        <footer className="flex justify-between p-10">
+        <footer className="flex justify-between p-8">
             <div className="flex bg-white rounded-full">
                 <a href="https://www.facebook.com/CEII.UCA" className="self-center">
                     <FontAwesomeIcon icon={faFacebookSquare} color="#033C71" className="social-icon-p"/>
@@ -15,11 +15,11 @@ const Footer : FunctionComponent = () => {
                 <a href="https://github.com/CEII" className="self-center">
                     <FontAwesomeIcon icon={faGithubSquare} color="#033C71" className="social-icon-p"/>
                 </a>
-                <a href="https://discord.gg/" className="self-center">
+                <a href="https://discord.gg/MAYVjVyZcC" className="self-center">
                     <FontAwesomeIcon icon={faDiscord} color="#033C71" className="social-icon-p mr-6"/>
                 </a>
             </div>
-            <p className="text-sm text-white font-sans font-bold self-center sm:text-lg">© CEII - 2021</p>
+            <p className="text-white font-sans font-bold self-center copyright-sizes">© CEII - 2021</p>
         </footer>
     )
 }

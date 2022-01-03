@@ -4,7 +4,11 @@
 @tailwind utilities; 
 
 .social-icon-p{
-    @apply w-4 ml-6 sm:w-8
+    @apply ml-5 sm:text-sm md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl
+}
+
+.copyright-sizes{
+    @apply sm:text-sm md:text-xl lg:text-3xl xl:text-3xl 2xl:text-4xl text-2xl
 }
 
 
