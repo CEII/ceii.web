@@ -1,8 +1,8 @@
 import type {NextPage} from 'next';
 
-const own: NextPage = () => {
+const Own: NextPage = () => (
     <div>
         <h1>tarjeta personal ruta:/users/profile/own</h1>
     </div>
-}
-export default own;
+)
+export default Own;
