@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react';
 
-const ConstructionFido: FunctionComponent = () => {
+const ConstructionFido: FunctionComponent = ({ className }) => {
     return (
         <svg
+            className={className}
             width="355"
             height="650"
             viewBox="0 0 355 650"
