@@ -4,7 +4,7 @@ import { NextPage } from 'next';
 const Custom404: NextPage = () => {
   return (
     <div className="bg-primary p-16 w-full h-screen  ">
-      <div className="flex flex-col mt-24 space-y-3 justify-center items-center lg:mt-40">
+      <div className="flex flex-col mt-24 space-y-5 justify-center items-center lg:mt-40">
         <div
           className=" bg-white text-xl font-bold w-1/3 text-center rounded-full
           lg: w-24 "
@@ -13,7 +13,7 @@ const Custom404: NextPage = () => {
         </div>
         <p className="text-white font-bold text-lg">No hay nada por aquí...</p>
         <div className="w-auto">
-          <LostFido />
+          <LostFido className="w-44 md:w-48 lg:w-52" />
         </div>
         <button
           className=" w-9/12  font-semibold bg-accent text-white rounded-full

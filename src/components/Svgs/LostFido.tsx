@@ -1,6 +1,9 @@
-const LostFido = () => {
+import { FunctionComponent } from 'react';
+
+const LostFido: FunctionComponent = ({ className }) => {
   return (
     <svg
+      className={className}
       width="287"
       height="267"
       viewBox="0 0 287 267"
