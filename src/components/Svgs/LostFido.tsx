@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 const LostFido: FunctionComponent = ({ className }) => {
-  return (
+return (
     <svg
       className={className}
       width="287"
