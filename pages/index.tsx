@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import type { NextPage } from 'next';
+import Footer from '@components/Footer'
 import * as userService from '@services/users/userService';
 
 const Home: NextPage = () => {
@@ -13,7 +14,11 @@ const Home: NextPage = () => {
 
     if (data) console.log(data);
 
-    return <h1>Fetching</h1>;
+    return (
+        <div>
+            <Footer />
+        </div>
+    )
 };
 
 export default Home;

@@ -4,15 +4,23 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    colors: {
-      primary: '#23272C',
-      accent: '#ED554C',
-      secondary: '#033C71',
+    extend: {
+      colors: {
+        primary: '#23272C',
+        accent: '#ED554C',
+        secondary: '#033C71',
+      },
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+      },
+      screens: {
+        'sm': '375px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1440px',
+        '2xl': '1920px',
+      },
     },
-    fontFamily: {
-      sans: ['Montserrat', 'sans-serif'],
-    },
-    extend: {},
   },
   plugins: [],
 };
