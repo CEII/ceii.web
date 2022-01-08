@@ -1,24 +1,32 @@
-import { useQuery } from 'react-query';
+/* eslint-disable consistent-return */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import type { NextPage } from 'next';
-import Footer from '@components/Footer'
-import * as userService from '@services/users/userService';
+import { GoogleProps } from 'interfaces/props';
+import React from 'react';
+import ImageContainer from '@components/ImageContainer';
+import storageService from '@services/storageService';
+import { USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
 
-const Home: NextPage = () => {
-    const { data, isLoading, isError } = useQuery('users', () =>
-        userService.getUsers()
-    );
+const Home: NextPage<GoogleProps> = () => {
+    const { data: session } = useSession();
 
-    if (isLoading) return <h1>Loading</h1>;
-
-    if (isError) return <h1>Error</h1>;
-
-    if (data) console.log(data);
+    if (!session)
+        return (
+            <div className="w-full h-screen flex items-center justify-center">
+                <Link href="/login">
+                    <a className="btn btn-primary">Inicia sesión</a>
+                </Link>
+            </div>
+        );
 
     return (
-        <div>
-            <Footer />
+        <div className="w-screen h-screen flex items-center justify-center text-white">
+            <ImageContainer src={storageService.get(USER_IMAGE)} className="w-32 h-32" />
+            <p>¡Bienvenido {storageService.get(USER_DISPLAY_NAME)}</p>
         </div>
-    )
+    );
 };
 
 export default Home;

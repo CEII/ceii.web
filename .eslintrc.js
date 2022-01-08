@@ -28,6 +28,7 @@ module.exports = {
     rules: {
         // Indent with 4 spaces
         indent: ['error', 4],
+        'no-restricted-exports': 'off',
         // Indent JSX with 4 spaces
         'react/jsx-indent': ['error', 4],
         // Indent props with 4 spaces
@@ -45,20 +46,14 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-namespace': 0,
         '@typescript-eslint/explicit-module-boundary-types': 0,
-        'import/extensions': [
-            1,
-            { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-        ],
+        'import/extensions': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'import/no-extraneous-dependencies': [
             'error',
             {
                 devDependencies: true,
             },
         ],
-        'react/jsx-filename-extension': [
-            1,
-            { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-        ],
+        'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
         'react/react-in-jsx-scope': 0,
         'react/jsx-first-prop-new-line': 0,
         'react/prop-types': 0,
@@ -79,6 +74,7 @@ module.exports = {
                 trailingComma: 'es5',
                 tabWidth: 4,
                 useTabs: false,
+                printWidth: 120,
             },
         ],
         'react-hooks/rules-of-hooks': 2,
