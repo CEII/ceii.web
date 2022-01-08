@@ -7,7 +7,7 @@ import TsIcon from './TsIcon';
 
 const Footer: FunctionComponent = () => {
     return (
-        <div className="font-bold text-xl w-screen  -ml-4 lg:-ml-32 bg-secondary flex flex-col justify-center items-center py-2 space-y-2">
+        <div className="font-bold text-xl w-screen  -ml-4 md:-ml-48 lg:-ml-32 bg-secondary flex flex-col justify-center items-center py-2 space-y-2">
             <h1 className="text-white">Tecnologías</h1>
             <div className="flex space-x-7">
                 <TsIcon />
