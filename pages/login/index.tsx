@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 import type { NextPage } from 'next';
 import { GoogleProps } from 'interfaces/props';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Spinner from '@components/Spinner';
 import storageService from '@services/storageService';
 import { AUTH_TOKEN, USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
@@ -12,8 +12,23 @@ import Head from 'next/head';
 const Login: NextPage<GoogleProps> = () => {
     const [isLoading, setIsLoading] = useState(false);
     const { data: session } = useSession();
+    const router = useRouter();
 
-    if (session) Router.push('/home');
+    useEffect(() => {
+        if (session) {
+            const { user } = session;
+
+            storageService.set(AUTH_TOKEN, user.accessToken);
+            storageService.set(USER_DISPLAY_NAME, user.name);
+            storageService.set(USER_IMAGE, user.image);
+
+            router.push('/');
+        } else {
+            storageService.remove(AUTH_TOKEN);
+            storageService.remove(USER_DISPLAY_NAME);
+            storageService.remove(USER_IMAGE);
+        }
+    }, [session, router]);
 
     async function onSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -27,17 +42,6 @@ const Login: NextPage<GoogleProps> = () => {
             callbackUrl: '/',
             ...body,
         });
-
-        if (session) {
-            const { user } = session;
-
-            storageService.set(AUTH_TOKEN, user.accessToken);
-            storageService.set(USER_DISPLAY_NAME, user.name);
-            storageService.set(USER_IMAGE, user.image);
-
-            setIsLoading(false);
-            Router.push('/home');
-        }
     }
 
     return (

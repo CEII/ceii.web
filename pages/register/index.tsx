@@ -6,10 +6,12 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import { register } from '@services/identity/identityService';
 import Spinner from '@components/Spinner';
+import { useRouter } from 'next/router';
 
 const Register: NextPage = () => {
     const [imgUrl, setImgUrl] = useState('/img/empty.png');
     const { isLoading, mutate } = useMutation(register);
+    const router = useRouter();
 
     function onChange(e: any) {
         if (!e.target.files) return;
@@ -28,6 +30,7 @@ const Register: NextPage = () => {
         if (!(body.email as string).endsWith('@uca.edu.sv')) return;
 
         await mutate(formData);
+        router.push('/login');
     }
 
     return (
