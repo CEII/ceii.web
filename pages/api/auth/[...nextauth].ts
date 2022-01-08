@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable consistent-return */
 import { signIn } from '@services/identity/identityService';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';

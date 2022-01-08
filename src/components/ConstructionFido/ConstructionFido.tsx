@@ -1,6 +1,7 @@
+import { ExtendedDefaultProps } from 'interfaces/props';
 import { FunctionComponent } from 'react';
 
-const ConstructionFido: FunctionComponent = ({ className }) => {
+const ConstructionFido: FunctionComponent<ExtendedDefaultProps> = ({ className }) => {
     return (
         <svg
             className={className}
