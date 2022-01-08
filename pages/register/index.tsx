@@ -41,7 +41,7 @@ const Register: NextPage = () => {
                     <p className="text-lg font-bold">Gracias por unirte</p>
                     <p className="italic">¡Por favor, llena todos tus datos!</p>
                 </div>
-                <ImageContainer src={imgUrl} className="w-32 h-32 rounded-full mb-12 border-4 border-accent" />
+                <ImageContainer src={imgUrl} className="w-32 h-32 rounded-full mb-12 border-4 border-accent" alt="me" />
                 <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/4" onSubmit={onSubmit}>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
                         <input

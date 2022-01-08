@@ -11,6 +11,7 @@ export interface ExtendedDefaultProps {
 
 export interface ImageProps extends ExtendedDefaultProps {
     src?: string;
+    alt: string;
 }
 
 export interface LinkGroup {
