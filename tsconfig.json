@@ -23,6 +23,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
+    "typeRoots": ["types"],
     "paths": {
       "@components/*": [
         "components/*"
@@ -32,6 +33,9 @@
       ],
       "@services/*": [
         "services/*"
+      ],
+      "@constants/*": [
+        "constants/*"
       ]
     },
     "incremental": true
