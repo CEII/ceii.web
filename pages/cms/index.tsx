@@ -10,7 +10,7 @@ const Cms: NextPage = () => (
             <FontAwesomeIcon icon={faBars} className="w-10 mt-3 ml-4 text-2xl text-white md:text-5xl" />
         </nav>
 
-        <section className="flex p-2 mt-16 space-y-5 fle-col m-7 md:gap-12 md:ml-20 md:w-3/4 lg:grid lg:grid-cols-2 lg:gap-8 lg:ml-0 lg:space-y-0 lg:my-auto lg:p-12 lg:w-full lg:place-items-center ">
+        <section className="flex flex-col p-2 mt-16 space-y-5 m-7 md:gap-12 md:ml-20 md:w-3/4 lg:grid lg:grid-cols-2 lg:gap-8 lg:ml-0 lg:space-y-0 lg:my-auto lg:p-12 lg:w-full lg:place-items-center ">
 
             <div className="flex flex-col justify-between pl-4 text-sm text-white rounded-2xl bg-secondary md:h-32 md:pb-2 lg:p-5 lg:h-72 lg:w-9/12 lg:place-self-end hover:bg-white group">
 
