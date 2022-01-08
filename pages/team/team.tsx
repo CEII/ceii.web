@@ -1,7 +1,8 @@
+import Footer from '@components/Team/Footer';
 import type { NextPage } from 'next';
 
 const Team: NextPage = () => (
-    <div className="flex flex-col p-4 md:justify-start md:items-start md:px-48 lg:py-16 lg:px-32">
+    <div className="flex flex-col p-4 md:justify-start md:items-start md:px-48 lg:py-16 lg:px-32 h-screen">
         <div className="py-6 px-3 md:py-10">
             <h1 className="text-white font-bold text-2xl md:text-xl lg:text-3xl">
                 Conoce a nuestros desarrolladores
@@ -53,6 +54,12 @@ const Team: NextPage = () => (
                 </ul>
             </div>
         </div>
+        {/* Nota: no sé cómo posicionar el footer y que esté siempre abajo
+        se supone que es así, pero no hace nada xd */}
+        {/* A ya lo hizo xddd */}
+        <footer className="absolute bottom-0">
+            <Footer />
+        </footer>
     </div>
 );
 
