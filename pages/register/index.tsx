@@ -9,7 +9,7 @@ import Spinner from '@components/Spinner';
 
 const Register: NextPage = () => {
     const [imgUrl, setImgUrl] = useState('/img/empty.png');
-    const { data, isLoading, isError, mutate } = useMutation(register);
+    const { isLoading, mutate } = useMutation(register);
 
     function onChange(e: any) {
         if (!e.target.files) return;
@@ -25,14 +25,10 @@ const Register: NextPage = () => {
         const formData = new FormData(e.target as HTMLFormElement);
         const body = Object.fromEntries(formData.entries());
 
-        console.log(body);
-
         if (!(body.email as string).endsWith('@uca.edu.sv')) return;
 
         await mutate(formData);
     }
-
-    if (data) console.log(data);
 
     return (
         <>

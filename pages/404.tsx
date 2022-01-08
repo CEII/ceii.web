@@ -24,7 +24,6 @@ const Custom404: NextPage = () => {
                 </div>
             </div>
         </>
-
     );
 };
 export default Custom404;
