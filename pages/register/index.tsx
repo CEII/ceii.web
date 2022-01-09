@@ -16,7 +16,7 @@ import useDelay from '@hooks/useDelay';
 import { COMPONENT_STATUS } from '@constants/states';
 
 const Register: NextPage = () => {
-    const [loadStatus, show, hide] = useDelay(500);
+    const [loadStatus, show] = useDelay(500);
     const [imgUrl, setImgUrl] = useState('/img/empty.png');
     const { mutate } = useMutation(register);
     const router = useRouter();
@@ -39,7 +39,7 @@ const Register: NextPage = () => {
         if (!(body.email as string).endsWith('@uca.edu.sv')) return;
 
         await mutate(formData);
-        hide();
+        router.push('/login');
     }
 
     return (
