@@ -10,6 +10,7 @@ export interface ImageProps extends ExtendedDefaultProps {
     src?: string;
     alt: string;
     rounded?: boolean;
+    dataBlur?: string;
 }
 
 export interface LinkGroup {

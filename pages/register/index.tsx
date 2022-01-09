@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import ImageContainer from '@components/ImageContainer';
+import { BlurredImageContainer } from '@components/ImageContainer';
 import Spinner from '@components/Spinner';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -14,6 +14,7 @@ import Link from 'next/link';
 import Layout from '@components/Layout';
 import useDelay from '@hooks/useDelay';
 import { COMPONENT_STATUS } from '@constants/states';
+import encodings from '@constants/encodings';
 
 const Register: NextPage = () => {
     const [loadStatus, show] = useDelay(500);
@@ -57,11 +58,12 @@ const Register: NextPage = () => {
                         <p className="text-lg font-bold lg:text-2xl">Gracias por unirte</p>
                         <p className="italic lg:text-lg">¡Por favor, llena todos tus datos!</p>
                     </div>
-                    <ImageContainer
+                    <BlurredImageContainer
                         src={imgUrl}
                         className="w-32 h-32 rounded-full border-4 border-white mb-8"
                         alt="me"
                         rounded
+                        dataBlur={encodings.BLUE}
                     />
                     <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/5" onSubmit={onSubmit}>
                         <div className="flex flex-col-reverse  space-y-reverse text-white font-medium group">

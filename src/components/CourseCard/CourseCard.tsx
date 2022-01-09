@@ -1,4 +1,4 @@
-import ImageContainer from '@components/ImageContainer';
+import { ImageContainer } from '@components/ImageContainer';
 import { FunctionComponent } from 'react';
 
 const CourseCard: FunctionComponent = () => {

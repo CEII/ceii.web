@@ -1,1 +1,2 @@
-export { default } from './ImageContainer';
+export { ImageContainer } from './ImageContainer';
+export { BlurredImageContainer } from './ImageContainer';

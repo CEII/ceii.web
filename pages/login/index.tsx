@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import Blob from '@components/Icons/Blob';
-import ImageContainer from '@components/ImageContainer';
+import { ImageContainer } from '@components/ImageContainer';
 import InputGroup from '@components/Inputs/InputGroup';
 import Layout from '@components/Layout';
 import Spinner from '@components/Spinner';
