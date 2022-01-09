@@ -9,10 +9,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 
-import { USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
-
-import storageService from '@services/storageService';
-
 const Home: NextPage<GoogleProps> = () => {
     const { data: session } = useSession();
 
