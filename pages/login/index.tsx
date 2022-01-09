@@ -1,15 +1,22 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useRouter } from 'next/router';
-import { signIn, useSession } from 'next-auth/react';
-import type { NextPage } from 'next';
-import { GoogleProps } from 'interfaces/props';
-import React, { useEffect, useState } from 'react';
+import Blob from '@components/Icons/Blob';
+import ImageContainer from '@components/ImageContainer';
+import InputGroup from '@components/Inputs/InputGroup';
+import Layout from '@components/Layout';
 import Spinner from '@components/Spinner';
-import storageService from '@services/storageService';
-import { AUTH_TOKEN, USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
-import Head from 'next/head';
 
-const Login: NextPage<GoogleProps> = () => {
+import type { NextPage } from 'next';
+import { signIn, useSession } from 'next-auth/react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+
+import { AUTH_TOKEN, USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
+
+import storageService from '@services/storageService';
+
+const Login: NextPage = () => {
     const [isLoading, setIsLoading] = useState(false);
     const { data: session } = useSession();
     const router = useRouter();
@@ -22,7 +29,7 @@ const Login: NextPage<GoogleProps> = () => {
             storageService.set(USER_DISPLAY_NAME, user.name);
             storageService.set(USER_IMAGE, user.image);
 
-            router.push('/');
+            router.push('/home');
         } else {
             storageService.remove(AUTH_TOKEN);
             storageService.remove(USER_DISPLAY_NAME);
@@ -49,49 +56,49 @@ const Login: NextPage<GoogleProps> = () => {
             <Head>
                 <title>Inicia sesión</title>
             </Head>
-            {isLoading && <Spinner />}
-            <div className="w-screen h-screen flex items-center justify-center text-white">
-                <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/4" onSubmit={onSubmit}>
-                    <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
-                            placeholder="00019618@uca.edu.sv"
-                            type="email"
-                            name="email"
-                            id="email"
-                            required
-                        />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="email"
-                        >
-                            Correo
-                        </label>
-                    </div>
-                    <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
-                            placeholder="***********"
-                            type="password"
-                            name="password"
-                            id="password"
-                            minLength={8}
-                            required
-                        />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="picture"
-                        >
-                            Contraseña
-                        </label>
-                    </div>
-                    <div className="w-full text-center">
-                        <button type="submit" className="btn btn-primary">
-                            Inicia sesión
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <Layout showFooter>
+                {isLoading && <Spinner />}
+                <div className="w-screen h-full flex items-center justify-center text-white">
+                    <Blob className="fixed z-[-10] top-0 left-0 w-screen" />
+                    <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/5" onSubmit={onSubmit}>
+                        <ImageContainer className="w-32 h-32 mx-auto my-12 -mt-20" src="/img/fido.png" alt="fido" />
+                        <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
+                            <InputGroup
+                                placeholder="00019618@uca.edu.sv"
+                                type="email"
+                                identifier="email"
+                                required
+                                minLength={19}
+                                maxLength={19}
+                                label={{ text: 'Correo' }}
+                            />
+                        </div>
+                        <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
+                            <InputGroup
+                                placeholder="Contraseña"
+                                type="password"
+                                identifier="password"
+                                required
+                                label={{ text: 'Contraseña' }}
+                                minLength={8}
+                            />
+                        </div>
+                        <div className="w-full flex justify-center space-x-1 text-white italic text-xs">
+                            <p>¿Aun no tienes cuenta?,</p>
+                            <Link href="/register">
+                                <a className="transition-all duration-200 underline text-blue-400 hover:text-blue-600">
+                                    regístrate
+                                </a>
+                            </Link>
+                        </div>
+                        <div className="w-full text-center">
+                            <button type="submit" className="btn btn-primary">
+                                Inicia sesión
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </Layout>
         </>
     );
 };

@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useMutation } from 'react-query';
 import ImageContainer from '@components/ImageContainer';
+import Spinner from '@components/Spinner';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import React, { useState } from 'react';
-import { register } from '@services/identity/identityService';
-import Spinner from '@components/Spinner';
 import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { useMutation } from 'react-query';
+import Blob from '@components/Icons/Blob';
+
+import { register } from '@services/identity/identityService';
+import InputGroup from '@components/Inputs/InputGroup';
+import Link from 'next/link';
 
 const Register: NextPage = () => {
     const [imgUrl, setImgUrl] = useState('/img/empty.png');
@@ -40,94 +44,80 @@ const Register: NextPage = () => {
             </Head>
             {isLoading && <Spinner />}
             <div className="w-screen h-screen flex flex-col justify-center items-center">
+                <Blob className="fixed z-[-10] top-0 left-0 w-screen" />
                 <div className="-mt-4 mb-5 text-white">
                     <p className="text-lg font-bold">Gracias por unirte</p>
                     <p className="italic">¡Por favor, llena todos tus datos!</p>
                 </div>
                 <ImageContainer src={imgUrl} className="w-32 h-32 rounded-full mb-12 border-4 border-accent" alt="me" />
-                <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/4" onSubmit={onSubmit}>
+                <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/5" onSubmit={onSubmit}>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
+                        <InputGroup
                             placeholder="Walter"
                             type="text"
-                            name="name"
-                            id="name"
+                            identifier="name"
                             required
                             minLength={3}
+                            label={{
+                                text: 'Nombre',
+                            }}
                         />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="name"
-                        >
-                            Nombre
-                        </label>
                     </div>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
+                        <InputGroup
                             placeholder="Morales"
                             type="text"
-                            name="lastName"
-                            id="lastName"
+                            identifier="lastName"
                             required
                             minLength={3}
+                            label={{
+                                text: 'Apellido',
+                            }}
                         />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="lastName"
-                        >
-                            Apellido
-                        </label>
                     </div>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
+                        <InputGroup
                             placeholder="00019618@uca.edu.sv"
                             type="email"
-                            name="email"
-                            id="email"
+                            identifier="email"
                             required
+                            minLength={19}
+                            maxLength={19}
+                            label={{ text: 'Correo' }}
                         />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="email"
-                        >
-                            Correo
-                        </label>
                     </div>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
                         <input
                             className="peer block w-full cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white"
-                            placeholder="a"
                             type="file"
                             name="picture"
                             id="picture"
                             onChange={onChange}
                         />
                         <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
+                            className="font-semibold text-lg transition-all duration-200 peer-focus:text-accent group-hover:text-accent"
                             htmlFor="picture"
                         >
                             Imagen de perfil
                         </label>
                     </div>
                     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
-                        <input
-                            className="peer rounded-full text-gray-700 py-1 px-4 outline-none transition-all duration-500 focus:border-accent focus:ring-2 focus:ring-accent"
-                            placeholder="***********"
+                        <InputGroup
+                            placeholder="Contraseña"
                             type="password"
-                            name="password"
-                            id="password"
-                            minLength={8}
+                            identifier="password"
                             required
+                            label={{ text: 'Contraseña' }}
+                            minLength={8}
                         />
-                        <label
-                            className="transition-all duration-500 peer-focus:text-accent group-hover:text-accent"
-                            htmlFor="picture"
-                        >
-                            Contraseña
-                        </label>
+                    </div>
+                    <div className="w-full flex justify-center space-x-1 text-white italic text-xs">
+                        <p>¿Ya tienes cuenta?,</p>
+                        <Link href="/login">
+                            <a className="transition-all duration-200 underline text-blue-400 hover:text-blue-600">
+                                inicia sesión
+                            </a>
+                        </Link>
                     </div>
                     <div className="w-full text-center">
                         <button type="submit" className="btn btn-primary">

@@ -25,7 +25,7 @@
     }
     
     .copyright-sizes{
-        @apply sm:text-base md:text-2xl lg:text-3xl xl:text-3xl 2xl:text-4xl
+        @apply text-lg md:text-xl lg:text-2xl
     }
     
     .footer-items-space{
@@ -49,6 +49,10 @@
 
     .border-animate {
         @apply transition-all duration-500 border-2 border-white hover:border-accent
+    }
+
+    .smooth-transition {
+        @apply transition-all duration-200
     }
 }
 

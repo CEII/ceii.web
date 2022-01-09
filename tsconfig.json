@@ -36,7 +36,10 @@
       ],
       "@constants/*": [
         "constants/*"
-      ]
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
     },
     "incremental": true
   },

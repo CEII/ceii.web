@@ -1,13 +1,14 @@
 /* eslint-disable consistent-return */
+
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import CenteredContainer from '@components/Containers/CenteredContainer';
+import ConstructionFido from '@components/Icons/ConstructionFido';
+import Protected from '@components/Protected';
 import { GoogleProps } from 'interfaces/props';
-import React from 'react';
+import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import type { NextPage } from 'next';
-import ConstructionFido from '@components/ConstructionFido/ConstructionFido';
-import CenteredContainer from '@components/Containers/CenteredContainer';
-import Protected from '@components/Protected';
+import React from 'react';
 
 const Home: NextPage<GoogleProps> = () => {
     const { data: session } = useSession();
