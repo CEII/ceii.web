@@ -2,7 +2,6 @@
 
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { BlurredImageContainer, ImageContainer } from '@components/ImageContainer';
-import { GoogleProps } from 'interfaces/props';
 import type { NextPage } from 'next';
 import { useSession, signOut } from 'next-auth/react';
 import Head from 'next/head';
@@ -10,7 +9,7 @@ import Link from 'next/link';
 import React from 'react';
 import encodings from '@constants/encodings';
 
-const Home: NextPage<GoogleProps> = () => {
+const Home: NextPage = () => {
     const { data: session } = useSession();
 
     return (
@@ -21,11 +20,7 @@ const Home: NextPage<GoogleProps> = () => {
             <div className="w-screen h-screen relative">
                 <nav className="w-full flex justify-end p-3 absolute z-20">
                     {session ? (
-                        <button
-                            className="btn btn-medium btn-secondary"
-                            type="button"
-                            onClick={() => signOut({ callbackUrl: 'https://www.ceii-uca.com', redirect: true })}
-                        >
+                        <button className="btn btn-medium btn-secondary" type="button" onClick={() => signOut()}>
                             Cerrar sesión
                         </button>
                     ) : (

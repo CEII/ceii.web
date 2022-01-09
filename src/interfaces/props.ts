@@ -41,3 +41,7 @@ export interface InputProps extends ExtendedDefaultProps {
     maxLength?: number;
     required?: boolean;
 }
+
+export interface SignOutPageProps {
+    callbackUrl: string;
+}
