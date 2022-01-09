@@ -2,75 +2,72 @@ import type { NextPage } from 'next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
-import Cmslogo from 'components/Cmslogo/Index';
+import BoxFido from '@components/Icons/BoxFido';
+import { FC } from 'react';
+import Layout from '@components/Layout';
+import Head from 'next/head';
+
+const CmsContainer: FC = ({ children }) => (
+    <article
+        className="flex flex-col justify-between text-sm text-white rounded-2xl bg-secondary transition-all duration-500 group 
+        hover:bg-white p-4 space-y-4 w-full md:w-2/3 lg:w-2/6"
+    >
+        {children}
+    </article>
+);
 
 const Cms: NextPage = () => (
-    <div>
+    <>
+        <Head>
+            <title>CMS</title>
+        </Head>
         <nav>
-            <FontAwesomeIcon
-                icon={faBars}
-                className="w-10 mt-3 ml-4 text-2xl text-white md:text-5xl"
-            />
+            <FontAwesomeIcon icon={faBars} className="w-10 mt-3 ml-4 text-2xl text-white md:text-5xl" />
         </nav>
 
-        <section className="flex flex-col p-2 mt-16 space-y-5 m-7 md:gap-12 md:ml-20 md:w-3/4 lg:grid lg:grid-cols-2 lg:gap-8 lg:ml-0 lg:space-y-0 lg:my-auto lg:p-12 lg:w-full lg:place-items-center ">
-            <div className="flex flex-col justify-between pl-4 text-sm text-white rounded-2xl bg-secondary md:h-32 md:pb-2 lg:p-5 lg:h-72 lg:w-9/12 lg:place-self-end hover:bg-white group">
-                <div className="transition-all duration-500 group-hover:text-secondary">
-                    <h2 className="pt-2 font-sans font-semibold md:text-xl">
-                        Administrar usuarios
-                    </h2>
-                    <p className="pt-2 pr-3 text-xs font-light md:text-sm">
-                        {' '}
-                        Envía invitaciones a nuevos usuarios, modifica la
-                        información y roles existentes.
-                    </p>
-                </div>
+        <Layout showFooter>
+            <section className="h-full px-10 pt-10 flex flex-col items-center justify-start space-y-4">
+                <CmsContainer>
+                    <div className="group-hover:text-secondary space-y-2">
+                        <h2 className="font-semibold md:text-xl">Administrar usuarios</h2>
+                        <p className="text-xs font-light md:text-sm md:font-normal">
+                            Envía invitaciones a nuevos usuarios, modifica la información y roles existentes.
+                        </p>
+                    </div>
 
-                <div className="flex justify-end pb-2 pr-4 md:pb-1">
                     <Link href="/cms/users">
-                        <a className="flex h-6 pl-5 pr-5 mt-5 text-xs font-medium text-white transition ease-in-out delay-150 rounded-full bg-accent md:text-sm md:px-7 hover:scale-110">
-                            Vamos allá
-                        </a>
+                        <a className="btn btn-small btn-primary self-end lg:btn-medium">Vamos allá</a>
                     </Link>
-                </div>
-            </div>
+                </CmsContainer>
 
-            <div className="flex flex-col justify-between pl-4 text-sm bg-white hover:bg-secondary group rounded-2xl text-secondary md:pb-2 lg:p-5 lg:h-72 lg:w-9/12 lg:place-self-start">
-                <div className="transition-all duration-500 md:pb-4 group-hover:text-white">
-                    <h2 className="pt-2 font-sans font-semibold md:text-xl">
-                        Administrar talleres sociofectivos
-                    </h2>
-                    <p className="pt-2 pr-3 text-xs font-light md:text-sm">
-                        {' '}
-                        Añade, modifica y elimina actividades. Consulta la
-                        información de un taller en específico
-                    </p>
-                </div>
+                <CmsContainer>
+                    <div className="group-hover:text-secondary space-y-2">
+                        <h2 className="font-semibold md:text-xl">Administrar talleres sociofectivos</h2>
+                        <p className="text-xs font-light md:text-sm md:font-normal">
+                            Añade, modifica y elimina actividades. Consulta la información de un taller en específico
+                        </p>
+                    </div>
 
-                <div className="flex justify-end pb-2 pr-4 md:pb-1">
                     <Link href="/cms/users">
-                        <a className="h-6 pl-5 pr-5 mt-5 text-xs font-medium text-white transition ease-in-out delay-150 rounded-full bg-accent md:text-sm md:px-7 hover:scale-110">
-                            Vamos allá
-                        </a>
+                        <a className="btn btn-small btn-primary self-end lg:btn-medium">Vamos allá</a>
                     </Link>
-                </div>
-            </div>
+                </CmsContainer>
 
-            <div className="flex items-center p-5 text-sm text-white hover:bg-white group rounded-2xl bg-secondary lg:h-72 lg:w-9/12 lg:place-self-end">
-                <div>
-                    <Cmslogo className="w-20 h-20 mr-7 " />
-                </div>
+                <div className="flex items-center p-4 text-sm text-white rounded-2xl bg-secondary space-x-7 w-full md:w-2/3 lg:w-2/6">
+                    <BoxFido className="w-24 h-24" />
 
-                <div className="transition-all duration-500 md:pb-4 group-hover:text-secondary">
-                    <h2 className="font-sans font-semibold md:text-2xl md:font-medium md:pr-10">
-                        Es lo único que puedes hacer por el momento...
-                    </h2>
-                    <p className="mt-3 text-xs font-light md:text-sm">
-                        ¡Agregaremos nuevas funciones pronto!
-                    </p>
+                    <div className="md:pb-4 space-y-2">
+                        <h2 className="font-sans font-semibold md:text-xl md:font-medium md:pr-10">
+                            Es lo único que puedes hacer por el momento...
+                        </h2>
+                        <p className="text-xs font-light md:text-sm md:font-normal">
+                            ¡Agregaremos nuevas funciones pronto!
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </div>
+            </section>
+        </Layout>
+    </>
 );
+
 export default Cms;
