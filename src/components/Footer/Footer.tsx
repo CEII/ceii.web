@@ -8,7 +8,7 @@ const Footer: FunctionComponent = () => {
             <div className="bg-white flex justify-evenly items-center rounded-full px-2 py-1 space-x-3 md:px-4 lg:space-x-5">
                 <a href="https://www.facebook.com/CEII.UCA" className="flex items-center justify-center group">
                     <Icon
-                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent smooth-transition"
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faFacebookSquare}
                         color="#033C71"
                     />
@@ -18,21 +18,21 @@ const Footer: FunctionComponent = () => {
                     className="flex items-center justify-center group"
                 >
                     <Icon
-                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent smooth-transition"
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faInstagram}
                         color="#033C71"
                     />
                 </a>
                 <a href="https://github.com/CEII" className="flex items-center justify-center group">
                     <Icon
-                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent smooth-transition"
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faGithubSquare}
                         color="#033C71"
                     />
                 </a>
                 <a href="https://discord.gg/MAYVjVyZcC" className="flex items-center justify-center group">
                     <Icon
-                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent smooth-transition"
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faDiscord}
                         color="#033C71"
                     />

@@ -1,8 +1,10 @@
 import ImageContainer from '@components/ImageContainer';
+import { ExtendedDefaultProps } from '@interfaces/props';
 import { FC } from 'react';
 
-const Spinner: FC = () => (
-    <div className="w-screen h-screen absolute z-10 bg-black bg-opacity-60 flex items-center justify-center">
+const Spinner: FC<ExtendedDefaultProps> = ({ className }) => (
+    <div className="w-screen h-screen absolute z-10 flex items-center justify-center overflow-hidden">
+        <div className={`absolute z-0 bg-black bg-opacity-60 rounded-full animate-enter ${className}`} />
         <ImageContainer src="/img/fido.png" className="w-20 h-20 animate-pulse" />
     </div>
 );

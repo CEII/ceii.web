@@ -62,3 +62,35 @@ input[type=file]::file-selector-button {
     margin-inline-start: -1rem;
     margin-inline-end: 1rem;
 }
+
+.animate-enter {
+    @apply transition-all duration-150 w-[200vw] h-[200vw];
+    animation: animate-enter 500ms linear 1;
+}
+
+.animate-leave {
+    @apply transition-all duration-150 w-0 h-0;
+    animation: animate-leave 500ms linear 1;
+}
+
+@keyframes animate-enter {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+    100% {
+        width: 200vw;
+        height: 200vw;
+    }
+}
+
+@keyframes animate-leave {
+    0% {
+        width: 200vw;
+        height: 200vw;
+    }
+    100% {
+        width: 0%;
+        height: 0%;
+    }
+}

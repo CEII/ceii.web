@@ -4,7 +4,7 @@
 import ImageContainer from '@components/ImageContainer';
 import { GoogleProps } from 'interfaces/props';
 import type { NextPage } from 'next';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
@@ -35,9 +35,16 @@ const Home: NextPage<GoogleProps> = () => {
             <Head>
                 <title>¡Bienvenido!</title>
             </Head>
-            <div className="w-screen h-screen flex items-center justify-center text-white">
+            <div className="w-screen h-screen flex flex-col items-center justify-center text-white">
                 <ImageContainer src={storageService.get(USER_IMAGE)} className="w-32 h-32" />
                 <p>¡Bienvenido {storageService.get(USER_DISPLAY_NAME)}</p>
+                <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => signOut({ callbackUrl: '/', redirect: true })}
+                >
+                    Cerrar sesión
+                </button>
             </div>
         </>
     );
