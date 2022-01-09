@@ -20,6 +20,12 @@ module.exports = {
                 xl: '1440px',
                 '2xl': '1920px',
             },
+            fontSize: {
+                'xxs': ['11px', {
+                    letterSpacing: '-0.02em',
+                    lineHeight: '10px',
+                }],
+            },
         },
     },
     plugins: [],
