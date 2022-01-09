@@ -70,6 +70,7 @@ const Login: NextPage = () => {
                             className="w-32 h-32 mx-auto my-12 -mt-20 lg:w-36 lg:h-36 hover:scale-110 smooth-transition"
                             src="/img/fido.png"
                             alt="fido"
+                            rounded
                         />
                         <div className="flex flex-col-reverse space-y-2 space-y-reverse text-white font-medium group">
                             <InputGroup

@@ -9,6 +9,7 @@ export interface ExtendedDefaultProps {
 export interface ImageProps extends ExtendedDefaultProps {
     src?: string;
     alt: string;
+    rounded?: boolean;
 }
 
 export interface LinkGroup {
@@ -39,4 +40,3 @@ export interface InputProps extends ExtendedDefaultProps {
     maxLength?: number;
     required?: boolean;
 }
-

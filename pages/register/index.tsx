@@ -61,6 +61,7 @@ const Register: NextPage = () => {
                         src={imgUrl}
                         className="w-32 h-32 rounded-full border-4 border-white mb-8"
                         alt="me"
+                        rounded
                     />
                     <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/5" onSubmit={onSubmit}>
                         <div className="flex flex-col-reverse  space-y-reverse text-white font-medium group">
