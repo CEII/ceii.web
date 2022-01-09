@@ -24,7 +24,7 @@ const Home: NextPage<GoogleProps> = () => {
                         <button
                             className="btn btn-medium btn-secondary"
                             type="button"
-                            onClick={() => signOut({ callbackUrl: '/', redirect: true })}
+                            onClick={() => signOut({ callbackUrl: 'https://www.ceii-uca.com', redirect: true })}
                         >
                             Cerrar sesión
                         </button>
