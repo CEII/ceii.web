@@ -22,7 +22,7 @@ import { LONG_NOTIFICATION } from '@constants/notify';
 
 const Login: NextPage = () => {
     const [loadStatus, show, hide] = useDelay(500);
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const router = useRouter();
 
     useEffect(() => {
