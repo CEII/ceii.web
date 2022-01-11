@@ -28,10 +28,13 @@ export default NextAuth({
                     password: credentials.password,
                 };
 
-                const user = await signIn(payload);
+                try {
+                    const user = await signIn(payload);
 
-                if (user) return user;
-                throw new Error(user.exception);
+                    if (user) return user;
+                } catch (err) {
+                    throw new Error('error');
+                }
             },
         }),
     ],

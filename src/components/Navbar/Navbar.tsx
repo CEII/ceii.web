@@ -25,7 +25,7 @@ const Navbar: FC = () => {
             >
                 <nav
                     className={`transition-all duration-500 ${
-                        isActive ? 'w-full md:w-2/5 lg:w-1/6' : 'w-0'
+                        isActive ? 'w-full md:w-2/5 lg:w-2/6 xl:w-3/12 2xl:w-1/6' : 'w-0'
                     } h-screen bg-white`}
                 >
                     <ul

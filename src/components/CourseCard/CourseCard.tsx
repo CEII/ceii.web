@@ -4,7 +4,7 @@ import { FC, useEffect, useRef, useState } from 'react';
 import { enroll } from '@services/preu/preuService';
 import toast from 'react-hot-toast';
 import CenteredContainer from '@components/Containers/CenteredContainer';
-import { SHORT_NOTIFICATION } from '@constants/notify';
+import { LONG_NOTIFICATION } from '@constants/notify';
 
 const CardLoader: FC = () => (
     <CenteredContainer
@@ -35,7 +35,7 @@ const CourseCard: FC<PreuCardProps> = ({ id, title, schedule, description, enabl
 
             const mssg = data.isEnrolled === false ? 'Te has desinscrito' : 'Te has inscrito';
 
-            toast.success(mssg, SHORT_NOTIFICATION);
+            toast.success(mssg, LONG_NOTIFICATION);
         } else isMounted.current = true;
     }, [data]);
 

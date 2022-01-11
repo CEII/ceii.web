@@ -2,6 +2,7 @@ import axios, { Method } from 'axios';
 import { AUTH_TOKEN, CORE_API_URL } from '@constants/session';
 import { Options } from 'interfaces/options';
 import { stringify } from 'querystring';
+import https from 'https';
 import storageService from './storageService';
 
 const createUrl = (url: string) => `${CORE_API_URL}${url}`;
@@ -28,7 +29,13 @@ export const request = async (url: string, method: Method, params?: any, extraOp
         options.data = params;
     }
 
-    return axios({ url: completeUrl, method, headers, ...options })
+    return axios({
+        url: completeUrl,
+        method,
+        headers,
+        ...options,
+        httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+    })
         .then((res) => res.data)
         .catch(catchHandler);
 };

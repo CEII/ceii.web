@@ -3,5 +3,5 @@ export const SHORT_NOTIFICATION = {
 };
 
 export const LONG_NOTIFICATION = {
-    duration: 4000,
+    duration: 5000,
 };

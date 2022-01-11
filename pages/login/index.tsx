@@ -17,10 +17,12 @@ import { AUTH_TOKEN, USER_DISPLAY_NAME, USER_IMAGE } from '@constants/session';
 import storageService from '@services/storageService';
 import useDelay from '@hooks/useDelay';
 import { COMPONENT_STATUS } from '@constants/states';
+import toast from 'react-hot-toast';
+import { LONG_NOTIFICATION } from '@constants/notify';
 
 const Login: NextPage = () => {
     const [loadStatus, show, hide] = useDelay(500);
-    const { data: session } = useSession();
+    const { data: session, status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
@@ -47,11 +49,15 @@ const Login: NextPage = () => {
         const formData = new FormData(e.target as HTMLFormElement);
         const body = Object.fromEntries(formData);
 
-        await signIn('credentials', {
+        const res = await signIn('credentials', {
             redirect: false,
             callbackUrl: '/',
             ...body,
         });
+
+        if (res && res.error === 'error')
+            toast.error('Ha habido un problema, intenta nuevamente o verfica tus credenciales', LONG_NOTIFICATION);
+        hide();
     }
 
     return (

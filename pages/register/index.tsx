@@ -15,6 +15,8 @@ import Layout from '@components/Layout';
 import useDelay from '@hooks/useDelay';
 import { COMPONENT_STATUS } from '@constants/states';
 import encodings from '@constants/encodings';
+import toast from 'react-hot-toast';
+import { LONG_NOTIFICATION } from '@constants/notify';
 
 const Register: NextPage = () => {
     const [loadStatus, show] = useDelay(500);
@@ -40,6 +42,7 @@ const Register: NextPage = () => {
         if (!(body.email as string).endsWith('@uca.edu.sv')) return;
 
         await mutate(formData);
+        toast.success('Gracias por registrarte, ahora inicia sesión', LONG_NOTIFICATION);
         router.push('/login');
     }
 
