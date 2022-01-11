@@ -15,7 +15,7 @@ export const request = async (url: string, method: Method, params?: any, extraOp
     const { needsAuth, multipart } = extraOptions || {};
 
     const token = storageService.get(AUTH_TOKEN);
-    const auth = token || (token && `Bearer ${token}`);
+    const auth = `Bearer ${token}`;
     const preHeader = needsAuth && auth && { Authorization: auth };
     const headers = multipart ? { 'content-type': 'multipart/form', ...preHeader } : preHeader;
 

@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 
 const Footer: FunctionComponent = () => {
     return (
-        <footer className="fixed h-[8vh] bottom-0 left-0 w-full flex items-center justify-around">
+        <footer className="fixed h-[8vh] bottom-0 left-0 w-full flex items-center justify-around bg-primary">
             <div className="bg-white flex justify-evenly items-center rounded-full px-2 py-1 space-x-3 md:px-4 lg:space-x-5">
                 <a href="https://www.facebook.com/CEII.UCA" className="flex items-center justify-center group">
                     <Icon

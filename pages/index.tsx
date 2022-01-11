@@ -20,9 +20,14 @@ const Home: NextPage = () => {
             <div className="w-screen h-screen relative">
                 <nav className="w-full flex justify-end p-3 absolute z-20">
                     {session ? (
-                        <button className="btn btn-medium btn-secondary" type="button" onClick={() => signOut()}>
-                            Cerrar sesión
-                        </button>
+                        <>
+                            <Link href="/home">
+                                <a className="btn btn-medium btn-secondary mr-2">Inicio</a>
+                            </Link>
+                            <button className="btn btn-medium btn-secondary" type="button" onClick={() => signOut()}>
+                                Cerrar sesión
+                            </button>
+                        </>
                     ) : (
                         <Link href="/login">
                             <a className="btn btn-medium btn-secondary">Inicia sesión</a>

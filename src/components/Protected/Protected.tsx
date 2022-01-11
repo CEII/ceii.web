@@ -10,7 +10,7 @@ const Protected: FC<ProtectedProps> = ({ message, link: { redirectTo, pageNameOr
         <Head>
             <title>¡Alto ahí!</title>
         </Head>
-        <CenteredContainer className="w-full h-screen space-y-10">
+        <CenteredContainer className="w-full h-screen space-y-10" orientation="vertical">
             <p className="text-white font-bold text-xl w-80 text-center">{message}</p>
             <BackpackFido className="w-40 h-auto" />
             <Link href={redirectTo}>

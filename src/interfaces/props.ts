@@ -45,3 +45,17 @@ export interface InputProps extends ExtendedDefaultProps {
 export interface SignOutPageProps {
     callbackUrl: string;
 }
+
+export interface ContainerProps extends ExtendedDefaultProps {
+    orientation: 'vertical' | 'horizontal';
+    wrap?: boolean;
+}
+
+export interface PreuCardProps {
+    id: number;
+    title: string;
+    schedule: Date;
+    description: string;
+    enabled: boolean;
+    isEnrolled?: boolean;
+}
