@@ -1,8 +1,6 @@
 import { useQuery } from 'react-query';
-import { Switch } from '@headlessui/react';
 import Layout from '@components/Layout';
 import { NextPage } from 'next';
-import { useState } from 'react';
 import { getAll } from '@services/preu/preuService';
 import { useSession } from 'next-auth/react';
 import Protected from '@components/Protected';
@@ -10,7 +8,6 @@ import Head from 'next/head';
 import CourseCard from '@components/CourseCard';
 
 const Preu: NextPage = () => {
-    const [fetchOwn, setFetchOwn] = useState(false);
     const { data: session } = useSession();
     const { data } = useQuery('courses', () => getAll({ year: new Date().getFullYear() }));
 

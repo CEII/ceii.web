@@ -2,11 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FC, useState } from 'react';
-import useDelay from '@hooks/useDelay';
 import Link from 'next/link';
 
 const Navbar: FC = () => {
-    const [state, show, hide] = useDelay(1000);
     const [isActive, setIsActive] = useState(false);
 
     return (

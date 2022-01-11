@@ -1,5 +1,4 @@
 import { useMutation } from 'react-query';
-import { ImageContainer } from '@components/ImageContainer';
 import { PreuCardProps } from '@interfaces/props';
 import { FC, useEffect, useRef, useState } from 'react';
 import { enroll } from '@services/preu/preuService';
