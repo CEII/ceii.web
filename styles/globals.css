@@ -110,3 +110,7 @@
 .h-\[92vh\] {
     height: 92vh;
 }
+
+.max-w-screen {
+    max-width: 100vw;
+}

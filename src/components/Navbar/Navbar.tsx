@@ -3,12 +3,13 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import { FC, useState } from 'react';
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 const Navbar: FC = () => {
     const [isActive, setIsActive] = useState(false);
 
     return (
-        <div className="w-full h-[6vh] p-3 fixed top-0 flex items-center justify-between bg-primary">
+        <div className="w-full h-[6vh] p-3 sticky top-0 flex items-center justify-between bg-primary z-50">
             <div role="button" className={`${isActive ? 'relative z-50' : ''}`} onClick={() => setIsActive(!isActive)}>
                 <div className={`transition-all ${isActive ? 'opacity-0' : ''} bg-white h-1 w-8 rounded-xl my-2`} />
                 <div
@@ -29,21 +30,34 @@ const Navbar: FC = () => {
                     } h-screen bg-white`}
                 >
                     <ul
-                        className={`transition-all duration-1000 ${
+                        className={`h-full flex flex-col transition-all duration-1000 ${
                             isActive ? 'opacity-100' : 'opacity-0'
                         } pt-20 text-primary`}
                     >
                         {isActive && (
                             <>
-                                <li className="transition-all duration-300 px-10 py-6 hover:text-white hover:bg-primary">
+                                <li className="w-full transition-all duration-300 hover:text-white hover:bg-primary flex justify-center items-center text-center h-14 lg:h-20">
                                     <Link href="/">
-                                        <a className="font-bold text-2xl">Inicio</a>
+                                        <a className="w-full h-full font-bold text-2xl flex items-center justify-center">
+                                            Inicio
+                                        </a>
                                     </Link>
                                 </li>
-                                <li className="transition-all duration-300 px-10 py-6 hover:text-white hover:bg-primary">
+                                <li className="w-full transition-all duration-300 hover:text-white hover:bg-primary flex justify-center items-center text-center h-14 lg:h-20">
                                     <Link href="/preu/inscriptions">
-                                        <a className="font-bold text-2xl">PreUniversitario</a>
+                                        <a className="w-full h-full font-bold text-2xl flex items-center justify-center">
+                                            PreUniversitario
+                                        </a>
                                     </Link>
+                                </li>
+                                <li className="mt-auto w-full transition-all duration-300 hover:text-white hover:bg-primary flex justify-center items-center text-center h-14 mb-6 lg:h-20">
+                                    <button
+                                        type="button"
+                                        className="w-full h-full font-bold text-2xl flex items-center justify-center"
+                                        onClick={() => signOut({ redirect: true, callbackUrl: '/' })}
+                                    >
+                                        Cerrar sesión
+                                    </button>
                                 </li>
                             </>
                         )}

@@ -15,7 +15,7 @@ const CardLoader: FC = () => (
     </CenteredContainer>
 );
 
-const CourseCard: FC<PreuCardProps> = ({ id, title, schedule, description, enabled, isEnrolled }) => {
+const CourseCard: FC<PreuCardProps> = ({ id, title, schedule, description, enabled, isEnrolled, isFiltered }) => {
     const isMounted = useRef(false);
 
     const [cardState, setCardState] = useState({
@@ -25,6 +25,7 @@ const CourseCard: FC<PreuCardProps> = ({ id, title, schedule, description, enabl
         description,
         enabled,
         isEnrolled,
+        isFiltered,
     });
 
     const { data, isLoading, mutate } = useMutation(() => enroll(id));
@@ -40,7 +41,11 @@ const CourseCard: FC<PreuCardProps> = ({ id, title, schedule, description, enabl
     }, [data]);
 
     return (
-        <div className="w-full bg-white rounded-xl text-secondary py-2 px-3 my-2 smooth-transition group hover:bg-secondary hover:text-white md:mx-2 md:w-5/12 xl:w-1/4 flex flex-col">
+        <div
+            className={`${
+                !isEnrolled && isFiltered && 'hidden'
+            } relative w-full bg-white rounded-xl text-secondary py-2 px-3 my-2 smooth-transition group hover:bg-secondary hover:text-white md:mx-2 md:w-5/12 xl:w-1/4 flex flex-col`}
+        >
             {isLoading && <CardLoader />}
             <h3 className="text-base font-bold border-b border-secondary group-hover:border-white md:text-lg xl:text-xl">
                 {cardState.title}

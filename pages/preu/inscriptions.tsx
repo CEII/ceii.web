@@ -6,10 +6,17 @@ import { useSession } from 'next-auth/react';
 import Protected from '@components/Protected';
 import Head from 'next/head';
 import CourseCard from '@components/CourseCard';
+import { Switch } from '@headlessui/react';
+import { useEffect, useState } from 'react';
 
 const Preu: NextPage = () => {
+    const [fetchOwn, setFetchOwn] = useState(false);
     const { data: session } = useSession();
-    const { data } = useQuery('courses', () => getAll({ year: new Date().getFullYear() }));
+    const { data, refetch } = useQuery('courses', () => getAll({ year: new Date().getFullYear() }));
+
+    useEffect(() => {
+        refetch();
+    }, [refetch, fetchOwn]);
 
     if (!session)
         return (
@@ -48,7 +55,7 @@ const Preu: NextPage = () => {
                             .
                         </p>
                     </article>
-                    {/* <article className="">
+                    <article className="">
                         <Switch.Group>
                             <div className="flex items-center">
                                 <Switch.Label className="mr-4 text-sm font-semibold text-white">
@@ -69,7 +76,7 @@ const Preu: NextPage = () => {
                                 </Switch>
                             </div>
                         </Switch.Group>
-                    </article> */}
+                    </article>
                     <article className="flex flex-wrap w-full justify-center">
                         {data &&
                             data.courses.map(({ id, title, schedule, description, enabled, isEnrolled }) => (
@@ -81,6 +88,7 @@ const Preu: NextPage = () => {
                                     description={description}
                                     enabled={enabled}
                                     isEnrolled={isEnrolled}
+                                    isFiltered={fetchOwn}
                                 />
                             ))}
                     </article>
