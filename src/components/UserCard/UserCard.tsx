@@ -1,22 +1,51 @@
 import { FunctionComponent } from 'react';
-import Navbar from '@components/Navbar';
-/* email, name, lastName, imageUrl, role, description */
-const UserCard: FunctionComponent = () => {
+import { UserCardProps } from 'interfaces/props';
+import { ImageContainer } from '@components/ImageContainer';
+import { Menu } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
+import ActivitySection from './ActivitySection/ActivitySection';
+
+const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) => {
     return (
-        <div className="flex flex-col justify-center items-center h-96 w-4/12  border-4 rounded bg-white space-y-4">
-            <img className="rounded-full border-4 w-[100px] h-[100px] border-accent" />
-            <h1>
-                Walter{/* name */} Morales {/* lastName */}
-            </h1>
-            <p>00019618@uca.edu.sv {/* email */}</p>
+        <div
+            className={`${
+                isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
+            } flex flex-wrap w-full rounded-xl p-2 items-center justify-between`}
+        >
+            <div className="flex flex-row space-x-2">
+                <ImageContainer className="rounded-full border-2 w-9 h-9 border-accent" alt="foto de perfil" />
+                <div className="">
+                    <p className="text-[0.85rem] font-bold"> Walter Morales {/* name */} </p>
+                    {/* Que redirija al email? */}
+                    <p className="text-[0.65rem] underline italic">00019618@uca.edu.sv {/* email */}</p>
+                </div>
+            </div>
+            <div className="space-x-1 flex flex-row items-center">
+                <span className="text-[0.830rem] font-bold"> Rol </span>
 
-            <p>Vicepresidente, Repr. Comité Relaciones Públicas {/* No sé xd */}</p>
-
-            <p>.NET & FullStack Developer @ Elaniin </p>
-
-            <footer className="relative bottom-0 w-full bg-secondary text-white h-16 flex justify-center ">
-                #00019618 {/* ucaId */}
-            </footer>
+                <Menu
+                    as="div"
+                    className={`${
+                        isPair ? 'bg-white text-secondary' : 'bg-secondary text-white'
+                    } flex flex-col rounded-xl w-2/3`}
+                >
+                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.65rem] flex justify-between font-semibold">
+                        {/* Aca ira el rol actual del usuario */}
+                        Rol
+                        <ChevronDownIcon className="w-4" />
+                    </Menu.Button>
+                    <Menu.Items className="flex flex-col w-20 text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold">
+                        <Menu.Item>
+                            <span> Admin </span>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <span> Facilitador </span>
+                        </Menu.Item>
+                    </Menu.Items>
+                </Menu>
+            </div>
+            {/* Ver en Pages/cms/users */}
+            {isFacilitator && <ActivitySection />}
         </div>
     );
 };
