@@ -27,7 +27,7 @@ const Users: NextPage = () => {
 
             <Layout showNav>
                 <CenteredContainer orientation="vertical">
-                    <div className="flex flex-col justify-center items-center space-y-6 m-6 h-fulls">
+                    <div className="flex flex-col justify-center items-center space-y-6 m-6 h-full">
                         <div>
                             <h1 className="text-white font-bold text-2xl"> Usuarios </h1>
                             <p className="text-white italic text-sm">Puedes ver todos los miembros registrados</p>
@@ -56,10 +56,6 @@ const Users: NextPage = () => {
                         <UserCard />
                         <UserCard isFacilitator />
                         {/* Cada dos (segun figma) se deben poner en color secondary */}
-                        <UserCard isPair />
-                        <UserCard isFacilitator isPair />
-                        <UserCard />
-                        <UserCard isFacilitator />
                         <UserCard isPair />
                         <UserCard isFacilitator isPair />
                     </div>

@@ -45,7 +45,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
                 </Menu>
             </div>
             {/* Ver en Pages/cms/users */}
-            {isFacilitator && <ActivitySection />}
+            {isFacilitator && <ActivitySection isPair={!isPair} />}
         </div>
     );
 };

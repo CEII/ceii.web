@@ -10,7 +10,7 @@ const ActivitySection: FunctionComponent<UserCardProps> = ({ isPair }) => {
             <Menu
                 as="div"
                 className={`${
-                    isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
+                    isPair ? 'text-white bg-secondary' : 'bg-white text-secondary'
                 } flex flex-col rounded-xl w-2/3`}
             >
                 <Menu.Button className=" h-max px-2 py-1 text-[0.65rem] flex justify-between ">
