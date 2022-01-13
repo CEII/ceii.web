@@ -1,6 +1,4 @@
 import type { NextPage } from 'next';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
 import BoxFido from '@components/Icons/BoxFido';
 import { FC } from 'react';
@@ -21,11 +19,8 @@ const Cms: NextPage = () => (
         <Head>
             <title>CMS</title>
         </Head>
-        <nav>
-            <FontAwesomeIcon icon={faBars} className="w-10 mt-3 ml-4 text-2xl text-white md:text-5xl" />
-        </nav>
 
-        <Layout showFooter>
+        <Layout showFooter showNav>
             <section className="h-full px-10 pt-10 flex flex-col items-center justify-start space-y-4">
                 <CmsContainer>
                     <div className="group-hover:text-secondary space-y-2">
