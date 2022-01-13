@@ -22,9 +22,15 @@ const Recover: NextPage = () => {
         const formData = new FormData(e.target as HTMLFormElement);
         const body = Object.fromEntries(formData);
 
-        await mutateAsync(body);
-        toast.success('¡De acuerdo, revisa tu correo!', LONG_NOTIFICATION);
-        hide();
+        try {
+            await mutateAsync(body);
+            toast.success('¡De acuerdo, revisa tu correo!', LONG_NOTIFICATION);
+            hide();
+        } catch (err: any) {
+            if (err.status === 400)
+                toast.error('¿Seguro que estás registrado?, parece que no te encontramos...', LONG_NOTIFICATION);
+            hide();
+        }
     }
 
     return (
