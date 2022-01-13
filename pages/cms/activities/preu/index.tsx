@@ -24,15 +24,15 @@ const Preu: NextPage<GoogleProps> = () => {
             />
         );
 
-    return(
+    return (
         <>
             <Head>
                 <title>PreUniversitario - {new Date().getFullYear()}</title>
             </Head>
-            
+
             <Layout showNav showFooter>
                 <CenteredContainer className="w-full pt-6" orientation="vertical">
-                    <section className="w-4/5">
+                    <section className="w-10/12">
                         <div className="flex flex-col">
                             <h1 className="font-sans font-bold text-2xl text-white">Actividades</h1>
                             <h2 className="font-sans text-xl italic text-white mb-4">
@@ -60,32 +60,26 @@ const Preu: NextPage<GoogleProps> = () => {
                             </button>
                         </div>
 
-                        <div className="flex flex-wrap gap-5 w-full justify-between mb-12">
-                            {
-                                data &&
-                                    data.courses.map(({id, title, schedule, description, enabled,isEnrolled})=>(
-                                        <ActivityCard
-                                            key={id}
-                                            id={id}
-                                            title={title}
-                                            schedule={schedule}
-                                            description={description}
-                                            enabled={enabled}
-                                            isEnrolled={isEnrolled}
-                                        />
-
-                                    ))
-                            }
-
+                        <div className="flex flex-col w-full mb-12 gap-4 lg:grid lg:grid-cols-2 lg:w-full lg:gap-x-36 lg:gap-y-6">
+                            {data &&
+                                data.courses.map(({ id, title, schedule, description, enabled, isEnrolled }) => (
+                                    <ActivityCard
+                                        key={id}
+                                        id={id}
+                                        title={title}
+                                        schedule={schedule}
+                                        description={description}
+                                        enabled={enabled}
+                                        isEnrolled={isEnrolled}
+                                    />
+                                ))}
                         </div>
-
                         <Pagination />
-
                     </section>
                 </CenteredContainer>
             </Layout>
         </>
     );
-}
+};
 
 export default Preu;
