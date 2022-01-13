@@ -10,18 +10,23 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
         <div
             className={`${
                 isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
-            } flex flex-wrap w-full rounded-xl p-2 items-center justify-between`}
+            } flex flex-wrap w-full rounded-xl p-1 items-center justify-between sm:p-2`}
         >
             <div className="flex flex-row space-x-2">
-                <ImageContainer className="rounded-full border-2 w-9 h-9 border-accent" alt="foto de perfil" />
+                <ImageContainer
+                    className="rounded-full border-2 w-7 h-7 border-accent sm:w-9 sm:h-9"
+                    alt="foto de perfil"
+                />
                 <div className="">
-                    <p className="text-[0.85rem] font-bold"> Walter Morales {/* name */} </p>
+                    <p className="text-xs font-bold sm:text-[0.85rem] "> Walter Morales {/* name */} </p>
                     {/* Que redirija al email? */}
-                    <p className="text-[0.65rem] underline italic">00019618@uca.edu.sv {/* email */}</p>
+                    <p className="text-[0.6rem] underline italic sm:text-[0.65rem]">
+                        00019618@uca.edu.sv {/* email */}
+                    </p>
                 </div>
             </div>
             <div className="space-x-1 flex flex-row items-center">
-                <span className="text-[0.830rem] font-bold"> Rol </span>
+                <span className="text-xs font-bold sm:text-[0.830rem] "> Rol </span>
 
                 <Menu
                     as="div"
@@ -29,7 +34,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
                         isPair ? 'bg-white text-secondary' : 'bg-secondary text-white'
                     } flex flex-col rounded-xl w-2/3`}
                 >
-                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.65rem] flex justify-between font-semibold">
+                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.6rem]  flex justify-between font-semibold sm:text-[0.65rem]">
                         {/* Aca ira el rol actual del usuario */}
                         Rol
                         <ChevronDownIcon className="w-4" />
