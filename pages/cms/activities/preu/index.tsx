@@ -9,26 +9,29 @@ import { useSession } from 'next-auth/react';
 import Protected from '@components/Protected';
 import { GoogleProps } from '@interfaces/props';
 import Pagination from '@components/Pagination';
+import { useQuery } from 'react-query';
+import { getAll } from '@services/preu/preuService';
 
 const Preu: NextPage<GoogleProps> = () => {
     const { data: session } = useSession();
-        
-    // if (!session)
-    //     return (
-    //         <Protected
-    //             message="Debes iniciar sesión antes de visitar esta página"
-    //             link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
-    //         />
-    //     );
+    const { data } = useQuery('courses', () => getAll({ year: new Date().getFullYear() }));
+
+    if (!session)
+        return (
+            <Protected
+                message="Debes iniciar sesión antes de visitar esta página"
+                link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+            />
+        );
 
     return(
         <>
             <Head>
-                <title>Preu</title>
+                <title>PreUniversitario - {new Date().getFullYear()}</title>
             </Head>
             
-            <Layout showFooter>
-                <CenteredContainer className="w-full h-full space-y-8" orientation="vertical">
+            <Layout showNav showFooter>
+                <CenteredContainer className="w-full pt-6" orientation="vertical">
                     <section className="w-4/5">
                         <div className="flex flex-col">
                             <h1 className="font-sans font-bold text-2xl text-white">Actividades</h1>
@@ -58,18 +61,27 @@ const Preu: NextPage<GoogleProps> = () => {
                         </div>
 
                         <div className="flex flex-wrap gap-5 w-full justify-between mb-12">
-                            <ActivityCard />
-                            <ActivityCard />
-                            <ActivityCard />
-                            <ActivityCard />
-                        </div>
+                            {
+                                data &&
+                                    data.courses.map(({id, title, schedule, description, enabled,isEnrolled})=>(
+                                        <ActivityCard
+                                            key={id}
+                                            id={id}
+                                            title={title}
+                                            schedule={schedule}
+                                            description={description}
+                                            enabled={enabled}
+                                            isEnrolled={isEnrolled}
+                                        />
 
+                                    ))
+                            }
+
+                        </div>
 
                         <Pagination />
 
                     </section>
-
-
                 </CenteredContainer>
             </Layout>
         </>

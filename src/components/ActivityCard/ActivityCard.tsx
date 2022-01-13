@@ -1,8 +1,18 @@
-import {FC} from 'react'
+import {FC, useState} from 'react'
 import { ImageContainer } from '@components/ImageContainer'
 import { UserIcon, PencilAltIcon, InformationCircleIcon } from '@heroicons/react/solid';
+import { PreuCardProps } from '@interfaces/props';
 
-const ActivityCard : FC = () => {  
+const ActivityCard : FC<PreuCardProps> = ({ id, title, schedule, description, enabled, isEnrolled }) => {  
+
+    const [activityCard, setActivityCard] = useState({
+        id,
+        title,
+        schedule,
+        description,
+        enabled,
+        isEnrolled,
+    });
 
     const IconsContainer : FC = ({children}) => (
         <div className="flex justify-center items-center text-sm">
@@ -10,7 +20,6 @@ const ActivityCard : FC = () => {
         </div>
     );
     
-
     return (
         <>
             <div className="w-full bg-white rounded-xl p-3 group hover:bg-secondary lg:w-5/12">
@@ -23,8 +32,8 @@ const ActivityCard : FC = () => {
                     />
                     
                     <div className='flex flex-col text-secondary mt-2 group-hover:text-white'>
-                        <h3 className="font-bold text-lg">Creación de marca</h3>
-                        <span className="text-sm italic">Lunes 21 de enero, 2021 - 8:00 AM</span>
+                        <h3 className="font-bold text-lg">{title}</h3>
+                        <span className="text-sm italic">{new Date(activityCard.schedule).toLocaleString()}</span>
                     </div>
                 </div>
                 <div className="flex justify-between text-secondary group-hover:text-white">
