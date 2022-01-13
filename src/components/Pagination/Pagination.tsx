@@ -1,31 +1,32 @@
-import {FC} from 'react'
+import { FC } from 'react';
+import ReactPaginate from 'react-paginate';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/solid';
 
+const Pagination: FC = () => {
+    const handlePageClick = (data: any) => {
+        console.log('Clicked page: ', data.selected + 1);
+    };
 
-const Pagination : FC = () => {
     return (
-        <>
-            <div className="flex justify-between w-full bg-white rounded-3xl h-12 px-3">
-                <div className="flex justify-center items-center text-secondary hover:text-accent">
-                    <button><ChevronDoubleLeftIcon className="w-full h-10"/></button>
-                </div>
-                
+        <div className="flex justify-between w-full bg-white rounded-3xl h-12 px-3 select-none">
+            <ReactPaginate
+                className="flex w-full justify-between items-center text-secondary"
+                pageClassName="flex justify-center w-1/12"
+                pageLinkClassName="font-bold hover:text-accent"
+                breakClassName="flex justify-center font-bold hover:text-accent w-1/12"
+                activeClassName="text-accent"
+                previousClassName="w-1/4 flex justify-start hover:text-accent "
+                nextClassName="w-1/4 flex justify-end hover:text-accent"
+                previousLabel={<ChevronDoubleLeftIcon className="h-10" />}
+                nextLabel={<ChevronDoubleRightIcon className="h-10" />}
+                breakLabel="..."
+                pageCount={10}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={1}
+                onPageChange={handlePageClick}
+            />
+        </div>
+    );
+};
 
-                <div className="flex justify-center items-center w-11/12 gap-8 text-secondary">
-                    <button className='font-bold hover:text-accent'>1</button>
-                    <button className='font-bold hover:text-accent'>2</button>
-                    <button className='font-bold hover:text-accent'>3</button>
-                    <button className='font-bold hover:text-accent'>4</button>
-                    <button className='font-bold hover:text-accent'>5</button>
-                </div>
-                
-                <div className="flex justify-center items-center text-secondary hover:text-accent">
-                    <button><ChevronDoubleRightIcon className="w-full h-9"/></button>
-                </div>
-            </div>
-            
-        </>
-    )
-}
-
-export default Pagination
+export default Pagination;
