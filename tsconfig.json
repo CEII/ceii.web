@@ -23,6 +23,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./src",
+    "typeRoots": ["types"],
     "paths": {
       "@components/*": [
         "components/*"
@@ -35,7 +36,10 @@
       ],
       "@constants/*": [
         "constants/*"
-      ]
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
     },
     "incremental": true
   },

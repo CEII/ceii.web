@@ -1,53 +1,62 @@
+import { faDiscord, faFacebookSquare, faGithubSquare, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faFacebookSquare,
-    faInstagram,
-    faGithubSquare,
-    faDiscord,
-} from '@fortawesome/free-brands-svg-icons';
 
 const Footer: FunctionComponent = () => {
     return (
-        <footer className="flex justify-between footer-items-space">
-            <div className="flex bg-white rounded-full">
+        <footer className="fixed h-[8vh] bottom-0 left-0 w-full flex items-center justify-around bg-primary">
+            <div className="bg-white flex justify-evenly items-center rounded-full px-2 py-1 space-x-3 md:px-4 lg:space-x-5">
                 <a
+                    target="_blank"
                     href="https://www.facebook.com/CEII.UCA"
-                    className="self-center"
+                    className="flex items-center justify-center group"
+                    rel="noreferrer"
                 >
-                    <FontAwesomeIcon
+                    <Icon
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faFacebookSquare}
                         color="#033C71"
-                        className="social-icon-p sm:ml-3 md:ml-4 lg:ml-8"
                     />
                 </a>
                 <a
+                    target="_blank"
                     href="https://www.instagram.com/ceii.uca/?hl=es-la"
-                    className="self-center"
+                    className="flex items-center justify-center group"
+                    rel="noreferrer"
                 >
-                    <FontAwesomeIcon
+                    <Icon
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faInstagram}
                         color="#033C71"
-                        className="social-icon-p"
                     />
                 </a>
-                <a href="https://github.com/CEII" className="self-center">
-                    <FontAwesomeIcon
+                <a
+                    target="_blank"
+                    href="https://github.com/CEII"
+                    className="flex items-center justify-center group"
+                    rel="noreferrer"
+                >
+                    <Icon
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faGithubSquare}
                         color="#033C71"
-                        className="social-icon-p"
                     />
                 </a>
-                <a href="https://discord.gg/MAYVjVyZcC" className="self-center">
-                    <FontAwesomeIcon
+                <a
+                    target="_blank"
+                    href="https://discord.gg/MAYVjVyZcC"
+                    className="flex items-center justify-center group"
+                    rel="noreferrer"
+                >
+                    <Icon
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faDiscord}
                         color="#033C71"
-                        className="social-icon-p sm:mr-3 md:mr-4 lg:mr-8"
                     />
                 </a>
             </div>
             <p className="text-white font-sans font-bold self-center copyright-sizes">
-                © CEII - 2021
+                © CEII - {new Date().getFullYear()}
             </p>
         </footer>
     );
