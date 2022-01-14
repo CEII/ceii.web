@@ -18,15 +18,15 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
                     alt="foto de perfil"
                 />
                 <div className="">
-                    <p className="text-xs font-bold sm:text-[0.85rem] "> Walter Morales {/* name */} </p>
+                    <p className="text-xs font-bold sm:text-[0.85rem] md:text-[1rem]"> Walter Morales {/* name */}</p>
                     {/* Que redirija al email? */}
-                    <p className="text-[0.6rem] underline italic sm:text-[0.65rem]">
+                    <p className="text-[0.6rem] underline italic sm:text-[0.65rem] md:text-[0.75rem]">
                         00019618@uca.edu.sv {/* email */}
                     </p>
                 </div>
             </div>
             <div className="space-x-1 flex flex-row items-center">
-                <span className="text-xs font-bold sm:text-[0.830rem] "> Rol </span>
+                <span className="text-xs font-bold sm:text-[0.830rem] md:text-[0.95rem]"> Rol </span>
 
                 <Menu
                     as="div"
@@ -34,12 +34,12 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
                         isPair ? 'bg-white text-secondary' : 'bg-secondary text-white'
                     } flex flex-col rounded-xl w-2/3`}
                 >
-                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.6rem]  flex justify-between font-semibold sm:text-[0.65rem] md:mr-2">
+                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.6rem] flex justify-between font-semibold sm:text-[0.65rem] md:text-[0.75rem]">
                         {/* Aca ira el rol actual del usuario */}
                         Rol
                         <ChevronDownIcon className="w-4" />
                     </Menu.Button>
-                    <Menu.Items className="flex flex-col w-30 text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold">
+                    <Menu.Items className="flex flex-col w-30 text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold md:text-[0.75rem]">
                         <Menu.Item>
                             <span> Admin </span>
                         </Menu.Item>
