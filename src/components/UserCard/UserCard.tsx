@@ -10,7 +10,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
         <div
             className={`${
                 isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
-            } flex flex-wrap w-full rounded-xl p-1 items-center justify-between sm:p-2`}
+            } flex flex-wrap w-full lg:w-2/4 rounded-xl p-2 items-center justify-between`}
         >
             <div className="flex flex-row space-x-2">
                 <ImageContainer
@@ -34,12 +34,12 @@ const UserCard: FunctionComponent<UserCardProps> = ({ isFacilitator, isPair }) =
                         isPair ? 'bg-white text-secondary' : 'bg-secondary text-white'
                     } flex flex-col rounded-xl w-2/3`}
                 >
-                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.6rem]  flex justify-between font-semibold sm:text-[0.65rem]">
+                    <Menu.Button className=" h-max px-2 py-1 w-20 text-[0.6rem]  flex justify-between font-semibold sm:text-[0.65rem] md:mr-2">
                         {/* Aca ira el rol actual del usuario */}
                         Rol
                         <ChevronDownIcon className="w-4" />
                     </Menu.Button>
-                    <Menu.Items className="flex flex-col w-20 text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold">
+                    <Menu.Items className="flex flex-col w-30 text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold">
                         <Menu.Item>
                             <span> Admin </span>
                         </Menu.Item>
