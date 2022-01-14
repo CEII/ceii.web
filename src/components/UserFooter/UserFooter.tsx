@@ -5,12 +5,9 @@ const UserFooter: FC = ()=>{
 
     return(
 
-        <footer>
-            <div className='w-full bg-secondary'>
-                <h1>Hola</h1>
-                
-            </div>
-        </footer>
+        <div className=" w-5/6 h-14 flex flex-col items-center  rounded-b-xl bg-secondary text-white font-bold ring-2 ring-white">
+        <h1 className='font-sans font-bold m-4 lg:text-2xl md:text-xl'>#0080119</h1>
+        </div>
     
     )
 }

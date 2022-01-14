@@ -4,16 +4,11 @@ import Head from 'next/head';
 import { ImageContainer } from '@components/ImageContainer';
 import InputGroup from '@components/Inputs/InputGroup';
 import { FC } from 'react';
+import UserFooter from '@components/UserFooter';
 
 const InputContainer:FC =({children})=>(
     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-secondary font-medium group">
         {children}
-    </div>
-)
-
-const UserFooter:FC=()=>(
-    <div className="bg-secondary w-full ">
-        <p>Hola</p>
     </div>
 )
 
@@ -26,20 +21,21 @@ const SettingsUser: NextPage = () => (
 
         <Layout showFooter showNav>
 
-            <section  className="mt-2 pb-6 h-full  flex flex-col items-center space-y-2 ">
+            <section  className="mt-2 pb-6 h-full  flex flex-col items-center  ">
 
-                <div className="w-full  text-center ">  
-                     <p className='text-white italic font-light text-xs'>Edita solo los campos que te gustaría modificar</p>
+                <div className="w-full  text-center mb-2 ">  
+                     <p className='text-white italic font-light text-xs sm:text-lg'>Edita solo los campos que te gustaría modificar</p>
                 </div>
-                <div className="bg-white h-5/6 w-5/6 rounded-xl flex flex-col items-center lg:h-3/4">
+
+                <div className="ring-2 ring-white bg-white  w-5/6 rounded-t-xl flex flex-col items-center lg:h-3/4 md:h-full">
                   
-                    <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12 gap-20" >
-                        <div className="mt-10 lg:mt-20 lg:mx-3">
+                    <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12 lg:gap-20" >
+                        <div className="mt-14 lg:mt-20 lg:mx-3">
                         <h2 className="text-secondary text-center font-bold text-lg "> Configuración de perfil</h2>
-                        <ImageContainer src="/img/empty.png" alt='Profile picture' className="w-28 h-28 mt-6 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center" rounded />
+                        <ImageContainer src="/img/empty.png" alt='Profile picture' className="w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center" rounded />
                         </div>
                         
-                        <form className="mt-5 h-3/4 text-center flex flex-col space-y-3  text-secondary font-medium lg:w-6/12 lg:m-14">
+                        <form className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:m-14">
                             <InputContainer>
                                 <InputGroup
                                     placeholder=""
@@ -90,17 +86,17 @@ const SettingsUser: NextPage = () => (
                                 />
                             </InputContainer>
                             <div className="w-auto text-center">
-                                <button type="submit" className="btn btn-primary lg:mt-6">
+                                <button type="submit" className="btn btn-primary mt-3 lg:mt-6">
                                     Actualizar
                                 </button>
                             </div>    
 
                             </form> 
-                        </div> 
-                        <div className="bg-secondary w-full " >
-                            
-                        </div>       
+                    </div> 
                 </div>
+
+                    <UserFooter />
+                
             </section>
 
         </Layout>
