@@ -8,17 +8,24 @@ import CenteredContainer from '@components/Containers/CenteredContainer';
 import InputGroup from '@components/Inputs/InputGroup';
 import { SearchCircleIcon, PlusCircleIcon } from '@heroicons/react/solid';
 import Pagination from '@components/Pagination';
+import { useQuery } from 'react-query';
+import { useSession } from 'next-auth/react';
+import Protected from '@components/Protected';
+import * as userService from '@services/users/userService';
 
 const Users: NextPage = () => {
-    // const { data: session } = useSession();
+    const { data: session } = useSession();
+    const { data } = useQuery('user', () => userService.getUsers());
 
-    // if (!session)
-    //     return (
-    //         <Protected
-    //             message="Debes iniciar sesión antes de visitar esta página"
-    //             link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
-    //         />
-    //     );
+    if (!session)
+        return (
+            <Protected
+                message="Debes iniciar sesión antes de visitar esta página"
+                link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+            />
+        );
+
+    // A no sé que le pasa tengo que poner el index y el size pero no sé cómo
 
     return (
         <>
@@ -59,7 +66,13 @@ const Users: NextPage = () => {
                             </button>
                         </div>
                         <div className="space-y-6 md:space-y-5 md:w-full md:max-w-full lg:flex lg:flex-wrap lg:space-y-0 lg:justify-between lg:gap-4">
-                            <UserCard />
+                            {/* 
+                               => A ayuda no me funciona el map
+                            {data &&
+                                data.user.map(({ email, name, lastName, imageUrl }) => (
+                                    <UserCard key={?} email={email} name={name} lastName={lastName} imageUrl={imageUrl} />
+                                ))}
+                                        */}
                             <UserCard isFacilitator />
                             {/* Cada dos (segun figma) se deben poner en color secondary */}
                             <UserCard isPair />
