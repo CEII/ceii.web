@@ -28,7 +28,7 @@ const Users: NextPage = () => {
 
             <Layout showNav>
                 <CenteredContainer orientation="vertical">
-                    <div className="flex flex-col justify-center items-center space-y-6 md:space-y-12 m-6 h-full md:w-3/5 lg:w-3/4">
+                    <div className="flex flex-col justify-center items-center space-y-6 md:space-y-12 m-6 h-full md:w-3/5 lg:w-3/4 xl:w-3/5">
                         <div className="w-full">
                             <h1 className="text-white font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
                                 Usuarios
