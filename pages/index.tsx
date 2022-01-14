@@ -90,11 +90,8 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        
-        <div
-          className="grid justify-items-center gap-y-3 space-y-4 pt-12 pb-32"
-        >
-          <div className="justify-self-center bg-blue-700 w-3/4 p-3 rounded-md text-white ">
+        <div className="grid justify-items-center gap-y-3 space-y-4 pt-12 pb-32 md:px-10 lg:px-32">
+          <div className="justify-self-center bg-blue-700 w-3/4 p-3 rounded-md text-white md:w-5/12 md:justify-self-start lg:w-1/3 lg:p-5">
             <h3 className="font-bold">¿Quienes somos? </h3>
             <p className="text-sm pt-2">
               Lorem Ipsum es simplemente el texto de relleno de las imprentas y
@@ -102,7 +99,7 @@ const Home: NextPage = () => {
               estándar de las industrias desde el año 1500
             </p>
           </div>
-          <div className="justify-self-center bg-white w-3/4 p-3 rounded-md text-blue-800">
+          <div className="justify-self-center bg-white w-3/4 p-3 rounded-md text-blue-800 md:w-5/12 lg:w-1/3 lg:p-5">
             <h3 className="font-bold">Misión </h3>
             <p className="text-sm pt-2">
               Lorem Ipsum es simplemente el texto de relleno de las imprentas y
@@ -110,7 +107,7 @@ const Home: NextPage = () => {
               estándar de las industrias desde el año 1500
             </p>
           </div>
-          <div className="justify-self-center bg-blue-700 w-3/4 p-3 rounded-md text-white">
+          <div className="justify-self-center bg-blue-700 w-3/4 p-3 rounded-md text-white md:w-5/12 md:justify-self-end lg:w-1/3 lg:p-5">
             <h3 className="font-bold">Visión</h3>
             <p className="text-sm pt-2">
               Lorem Ipsum es simplemente el texto de relleno de las imprentas y
@@ -119,8 +116,8 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
-     </div>
-   </>
+      </div>
+    </>
   );
 };
 
