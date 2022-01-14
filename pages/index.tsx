@@ -20,23 +20,27 @@ const Home: NextPage = () => {
                 <title>CEII - UCA</title>
             </Head>
             <Layout showFooter>
-                <nav className="flex justify-end p-3 absolute z-20">
-                    {session ? (
-                        <>
-                            <Link href="/home">
-                                <a className="btn btn-medium btn-secondary mr-2">Inicio</a>
-                            </Link>
-                            <button className="btn btn-medium btn-secondary" type="button" onClick={() => signOut()}>
-                                Cerrar sesión
-                            </button>
-                        </>
-                    ) : (
-                        <Link href="/login">
-                            <a className="btn btn-medium btn-secondary">Inicia sesión</a>
-                        </Link>
-                    )}
-                </nav>
                 <div className="w-full min-h-full relative">
+                    <nav className="flex justify-end p-3 absolute z-20">
+                        {session ? (
+                            <>
+                                <Link href="/home">
+                                    <a className="btn btn-medium btn-secondary mr-2">Inicio</a>
+                                </Link>
+                                <button
+                                    className="btn btn-medium btn-secondary"
+                                    type="button"
+                                    onClick={() => signOut()}
+                                >
+                                    Cerrar sesión
+                                </button>
+                            </>
+                        ) : (
+                            <Link href="/login">
+                                <a className="btn btn-medium btn-secondary">Inicia sesión</a>
+                            </Link>
+                        )}
+                    </nav>
                     <div className="bg-black bg-opacity-60 absolute h-full w-full z-10" />
                     <div className="grid grid-cols-12 grid-rows-6 w-full min-h-full">
                         <BlurredImageContainer
