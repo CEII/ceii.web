@@ -47,7 +47,7 @@ const CardTeam: FunctionComponent = () => (
 
 const Team: FunctionComponent = () => (
     <div className="w-full">
-        <div className="flex flex-col p-4 md:px-12 lg:py-16 lg:px-32 xl:p-16 xl:items-center">
+        <div className="flex flex-col p-4 md:px-12 lg:px-32 lg:py-8 xl:items-center">
             <div className="py-6 px-3 md:py-10">
                 <h1 className="text-white font-bold text-2xl md:text-xl lg:text-2xl">
                     Conoce a nuestros desarrolladores

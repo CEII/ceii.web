@@ -87,8 +87,37 @@ const Home: NextPage = () => {
                         />
                     </div>
                 </div>
-                <div className="min-h-full">
+                <div className="">
                     <Developers />
+                </div>
+                <div className="min-h-full grid justify-items-center gap-y-3 space-y-4 pt-12 pb-32 md:px-10 lg:px-32 xl:px-60">
+                    <div className="py-6 px-3 md:py-5">
+                        <h1 className="text-white font-bold text-2xl md:text-xl lg:text-2xl">Más acerca de nosotros</h1>
+                        <span className="text-white italic text-md md:text-base lg:text-xl">
+                            Nuestra misión y visión
+                        </span>
+                    </div>
+                    <div className="bg-secondary smooth-transition w-3/4 p-3 rounded-md text-white md:w-5/12 md:justify-self-start lg:w-1/3 lg:p-5 xl:w-1/3 hover:scale-110">
+                        <h3 className="font-bold lg:text-lg xl:text-2xl">¿Quienes somos?</h3>
+                        <p className="text-sm pt-2 md:text-base lg:text-lg">
+                            Somos una comunidad dedicada al aprendizaje y formación integral de los estudiantes de
+                            Ingeniería Informática; nos dedicamos a fomentar un ambiente de desarrollo y solidaridad.
+                        </p>
+                    </div>
+                    <div className="bg-white smooth-transition w-3/4 p-3 rounded-md text-secondary md:w-5/12 lg:w-1/3 lg:p-5 xl:w-1/3 hover:scale-110">
+                        <h3 className="font-bold lg:text-lg xl:text-2xl">Misión</h3>
+                        <p className="text-sm pt-2 md:text-base lg:text-lg">
+                            Ser un medio de crecimiento, creando las oportunidades necesarias para potenciar las
+                            aptitudes de los estudiantes de Ingeniería Informática en todos los ámbitos.
+                        </p>
+                    </div>
+                    <div className="bg-secondary smooth-transition w-3/4 p-3 rounded-md text-white md:w-5/12 md:justify-self-end lg:w-1/3 lg:p-5 xl:w-1/3 hover:scale-110">
+                        <h3 className="font-bold lg:text-lg xl:text-2xl">Visión</h3>
+                        <p className="text-sm pt-2 md:text-base lg:text-lg">
+                            Establecer un estándar de calidad en los futuros profesionales de Ingeniería Informática,
+                            con una amplia gama de áreas de estudio; ser desarrolladores de éxito.
+                        </p>
+                    </div>
                 </div>
             </Layout>
         </>
