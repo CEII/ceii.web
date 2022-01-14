@@ -54,7 +54,7 @@ const Users: NextPage = () => {
                                 <PlusCircleIcon className="w-6 text-secondary font-bold sm:w-7" />
                             </button>
                         </div>
-                        <div className='space-y-6 flex-wrap md:space-y-5 md:w-full md:max-w-full'>
+                        <div className="space-y-6 flex-wrap md:space-y-5 md:w-full md:max-w-full">
                             <UserCard />
                             <UserCard isFacilitator />
                             {/* Cada dos (segun figma) se deben poner en color secondary */}

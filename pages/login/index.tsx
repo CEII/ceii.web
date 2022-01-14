@@ -107,6 +107,13 @@ const Login: NextPage = () => {
                                 </a>
                             </Link>
                         </div>
+                        <div className="-mt-2 w-full flex justify-center space-x-1 text-white italic text-xs">
+                            <Link href="/recover">
+                                <a className="transition-all duration-200 underline text-blue-400 hover:text-blue-600">
+                                    ¿Olvidaste tu contraseña?
+                                </a>
+                            </Link>
+                        </div>
                         <div className="w-full text-center">
                             <button type="submit" className="btn btn-primary">
                                 Inicia sesión

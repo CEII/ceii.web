@@ -58,6 +58,7 @@ export interface PreuCardProps {
     description: string;
     enabled: boolean;
     isEnrolled?: boolean;
+    isFiltered?: boolean;
 }
 
 export interface UserCardProps {
