@@ -6,7 +6,7 @@ const UserFooter: FC = ()=>{
     return(
 
         <footer>
-            <div>
+            <div className='w-full bg-secondary'>
                 <h1>Hola</h1>
                 
             </div>
