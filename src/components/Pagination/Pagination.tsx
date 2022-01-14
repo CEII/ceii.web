@@ -3,12 +3,8 @@ import ReactPaginate from 'react-paginate';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/solid';
 
 const Pagination: FC = () => {
-    const handlePageClick = (data: any) => {
-        console.log('Clicked page: ', data.selected + 1);
-    };
-
     return (
-        <div className="flex justify-between w-full bg-white rounded-3xl h-12 px-3 select-none">
+        <div className="flex justify-between w-full bg-white rounded-3xl h-12 px-3 select-none mb-8">
             <ReactPaginate
                 className="flex w-full justify-between items-center text-secondary"
                 pageClassName="flex justify-center w-1/12"
@@ -20,10 +16,9 @@ const Pagination: FC = () => {
                 previousLabel={<ChevronDoubleLeftIcon className="h-10" />}
                 nextLabel={<ChevronDoubleRightIcon className="h-10" />}
                 breakLabel="..."
-                pageCount={10}
+                pageCount={1}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={1}
-                onPageChange={handlePageClick}
             />
         </div>
     );

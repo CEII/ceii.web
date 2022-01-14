@@ -27,7 +27,7 @@ const ActivityCard: FC<PreuCardProps> = ({ id, title, schedule, description, ena
                     rounded
                 />
 
-                <div className="flex flex-col text-secondary mt-2 group-hover:text-white">
+                <div className="flex flex-col text-secondary group-hover:text-white">
                     <h3 className="font-bold text-lg">{title}</h3>
                     <span className="text-sm italic">{new Date(activityCard.schedule).toLocaleString()}</span>
                 </div>
@@ -40,7 +40,7 @@ const ActivityCard: FC<PreuCardProps> = ({ id, title, schedule, description, ena
 
                 <IconsContainer>
                     <PencilAltIcon className="w-7 h-7" />
-                    <InformationCircleIcon className="w-7 h-7" />
+                    <InformationCircleIcon className="ml-2 w-7 h-7" />
                 </IconsContainer>
             </div>
         </div>

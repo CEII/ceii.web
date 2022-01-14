@@ -3,14 +3,13 @@ import { SearchCircleIcon, PlusCircleIcon } from '@heroicons/react/solid';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import CenteredContainer from '@components/Containers/CenteredContainer';
-import InputGroup from '@components/Inputs/InputGroup';
 import ActivityCard from '@components/ActivityCard';
 import { useSession } from 'next-auth/react';
 import Protected from '@components/Protected';
 import { GoogleProps } from '@interfaces/props';
-import Pagination from '@components/Pagination';
 import { useQuery } from 'react-query';
 import { getAll } from '@services/preu/preuService';
+import InputGroup from '@components/Inputs/InputGroup';
 
 const Preu: NextPage<GoogleProps> = () => {
     const { data: session } = useSession();
@@ -23,6 +22,27 @@ const Preu: NextPage<GoogleProps> = () => {
                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
             />
         );
+
+    const renderActivityCards = () => {
+        if (!data) return null;
+
+        return (
+            <div className="flex flex-col w-full mb-12 gap-4 lg:grid lg:grid-cols-2 lg:w-full lg:gap-x-36 lg:gap-y-6">
+                {data &&
+                    data.courses.map(({ id, title, schedule, description, enabled, isEnrolled }) => (
+                        <ActivityCard
+                            key={id}
+                            id={id}
+                            title={title}
+                            schedule={schedule}
+                            description={description}
+                            enabled={enabled}
+                            isEnrolled={isEnrolled}
+                        />
+                    ))}
+            </div>
+        );
+    };
 
     return (
         <>
@@ -51,7 +71,7 @@ const Preu: NextPage<GoogleProps> = () => {
                                     maxLength={19}
                                     label={{ text: '' }}
                                 />
-                                <button type="button" className="rounded-full absolute right-0 mr-0.5">
+                                <button type="submit" className="rounded-full absolute right-0 mr-0.5">
                                     <SearchCircleIcon className="h-11 text-secondary font-bold" />
                                 </button>
                             </div>
@@ -59,22 +79,7 @@ const Preu: NextPage<GoogleProps> = () => {
                                 <PlusCircleIcon className="h-11 p-1 text-secondary font-bold" />
                             </button>
                         </div>
-
-                        <div className="flex flex-col w-full mb-12 gap-4 lg:grid lg:grid-cols-2 lg:w-full lg:gap-x-36 lg:gap-y-6">
-                            {data &&
-                                data.courses.map(({ id, title, schedule, description, enabled, isEnrolled }) => (
-                                    <ActivityCard
-                                        key={id}
-                                        id={id}
-                                        title={title}
-                                        schedule={schedule}
-                                        description={description}
-                                        enabled={enabled}
-                                        isEnrolled={isEnrolled}
-                                    />
-                                ))}
-                        </div>
-                        <Pagination />
+                        {renderActivityCards()}
                     </section>
                 </CenteredContainer>
             </Layout>
