@@ -8,6 +8,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React from 'react';
 import encodings from '@constants/encodings';
+import Layout from '@components/Layout';
+import Developers from '@components/Developers';
 
 const Home: NextPage = () => {
     const { data: session } = useSession();
@@ -17,26 +19,30 @@ const Home: NextPage = () => {
             <Head>
                 <title>CEII - UCA</title>
             </Head>
-            <div className="w-screen h-screen relative">
-                <nav className="w-full flex justify-end p-3 absolute z-20">
-                    {session ? (
-                        <>
-                            <Link href="/home">
-                                <a className="btn btn-medium btn-secondary mr-2">Inicio</a>
+            <Layout showFooter>
+                <div className="w-full min-h-full relative">
+                    <nav className="flex justify-end p-3 absolute z-20">
+                        {session ? (
+                            <>
+                                <Link href="/home">
+                                    <a className="btn btn-medium btn-secondary mr-2">Inicio</a>
+                                </Link>
+                                <button
+                                    className="btn btn-medium btn-secondary"
+                                    type="button"
+                                    onClick={() => signOut()}
+                                >
+                                    Cerrar sesión
+                                </button>
+                            </>
+                        ) : (
+                            <Link href="/login">
+                                <a className="btn btn-medium btn-secondary">Inicia sesión</a>
                             </Link>
-                            <button className="btn btn-medium btn-secondary" type="button" onClick={() => signOut()}>
-                                Cerrar sesión
-                            </button>
-                        </>
-                    ) : (
-                        <Link href="/login">
-                            <a className="btn btn-medium btn-secondary">Inicia sesión</a>
-                        </Link>
-                    )}
-                </nav>
-                <div className="w-full h-full relative">
+                        )}
+                    </nav>
                     <div className="bg-black bg-opacity-60 absolute h-full w-full z-10" />
-                    <div className="grid grid-cols-12 grid-rows-6 w-full h-full">
+                    <div className="grid grid-cols-12 grid-rows-6 w-full min-h-full">
                         <BlurredImageContainer
                             src="/img/home/todos.jpg"
                             alt="ceii"
@@ -68,7 +74,7 @@ const Home: NextPage = () => {
                             dataBlur={encodings.SALMON}
                         />
                     </div>
-                    <div className="w-full absolute bottom-0 left-0 z-10 text-white font-bold p-5 text-xl flex justify-between items-end md:text-3xl md:p-10">
+                    <div className="w-full absolute bottom-0 left-0 z-10 text-white font-bold p-5 text-base flex justify-between items-end md:text-3xl md:p-10">
                         <p className="cursor-default">
                             Comunidad Estudiantil de <br />
                             Ingeniería Informática
@@ -76,12 +82,15 @@ const Home: NextPage = () => {
                         <ImageContainer
                             src="/img/fido.png"
                             alt="fido"
-                            className="w-32 h-32 lg:translate-y-4 smooth-transition hover:scale-110"
+                            className="w-20 h-20 lg:translate-y-4 smooth-transition hover:scale-110"
                             rounded
                         />
                     </div>
                 </div>
-            </div>
+                <div className="min-h-full">
+                    <Developers />
+                </div>
+            </Layout>
         </>
     );
 };
