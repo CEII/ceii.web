@@ -10,6 +10,7 @@ const InputGroup: FC<InputProps> = ({
     minLength,
     maxLength,
     required,
+    disabled
 }) => (
     <>
         <input
@@ -23,6 +24,7 @@ const InputGroup: FC<InputProps> = ({
             minLength={minLength ?? 0}
             maxLength={maxLength ?? 256}
             onChange={null}
+            disabled={disabled ?? false}
         />
         <label
             htmlFor={identifier}

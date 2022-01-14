@@ -50,7 +50,6 @@ const SettingsUser: NextPage = () => (
                                     placeholder=""
                                     type="text"
                                     identifier="name"
-                                    required
                                     minLength={19}
                                     maxLength={19}
                                     label={{ text: 'Nombre' }}
@@ -62,7 +61,6 @@ const SettingsUser: NextPage = () => (
                                     placeholder=""
                                     type="text"
                                     identifier="lastname"
-                                    required
                                     minLength={19}
                                     maxLength={19}
                                     label={{ text: 'Apellido' }}
@@ -72,9 +70,8 @@ const SettingsUser: NextPage = () => (
                             <InputContainer>
                                 <InputGroup
                                     placeholder=""
-                                    type="text"
+                                    type="password"
                                     identifier="password"
-                                    required
                                     minLength={19}
                                     maxLength={19}
                                     label={{ text: 'Contraseña' }}
@@ -85,13 +82,13 @@ const SettingsUser: NextPage = () => (
 
                                 <InputGroup
                                 placeholder="00219820@uca.edu.sv"
-                                type="text"
+                                type="email"
                                 identifier="email"
-                                required
-                                minLength={19}
-                                maxLength={19}
+                                minLength={0}
+                                maxLength={0}
                                 label={{ text: 'Email' }}
-                                className="bg-gray-300"
+                                className="bg-gray-400 "
+                                disabled
                                 />
                             </InputContainer>
                             <div className="w-auto text-center">

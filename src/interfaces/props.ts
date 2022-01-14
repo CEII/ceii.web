@@ -40,6 +40,7 @@ export interface InputProps extends ExtendedDefaultProps {
     minLength?: number;
     maxLength?: number;
     required?: boolean;
+    disabled?: boolean;
 }
 
 export interface SignOutPageProps {
