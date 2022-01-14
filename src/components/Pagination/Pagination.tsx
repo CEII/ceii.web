@@ -8,7 +8,7 @@ const Pagination: FC = () => {
     };
 
     return (
-        <div className="flex justify-between w-full bg-white rounded-3xl h-12 px-3 select-none">
+        <div className="flex justify-between w-full bg-white rounded-3xl h-7 text-xs px-3 select-none md:text-sm md:h-9 lg:h-9 lg:text-sm xl:h-10 xl:text-lg">
             <ReactPaginate
                 className="flex w-full justify-between items-center text-secondary"
                 pageClassName="flex justify-center w-1/12"
@@ -17,8 +17,8 @@ const Pagination: FC = () => {
                 activeClassName="text-accent"
                 previousClassName="w-1/4 flex justify-start hover:text-accent "
                 nextClassName="w-1/4 flex justify-end hover:text-accent"
-                previousLabel={<ChevronDoubleLeftIcon className="h-10" />}
-                nextLabel={<ChevronDoubleRightIcon className="h-10" />}
+                previousLabel={<ChevronDoubleLeftIcon className="h-6 md:h-7 lg:h-7 xl:h-8" />}
+                nextLabel={<ChevronDoubleRightIcon className="h-6 md:h-7 lg:h-7 xl:h-8" />}
                 breakLabel="..."
                 pageCount={10}
                 marginPagesDisplayed={2}
