@@ -90,7 +90,7 @@ const Home: NextPage = () => {
             />
           </div>
         </div>
-        <div className="grid justify-items-center gap-y-3 space-y-4 pt-12 pb-32 md:px-10 lg:px-32">
+        <div className="grid justify-items-center gap-y-3 space-y-4 pt-12 pb-32 md:px-10 lg:px-24 xl:px-32">
           <div className="justify-self-center bg-blue-700 w-3/4 p-3 rounded-md text-white md:w-5/12 md:justify-self-start lg:w-1/3 lg:p-5">
             <h3 className="font-bold">¿Quienes somos? </h3>
             <p className="text-sm pt-2">
