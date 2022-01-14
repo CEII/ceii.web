@@ -6,6 +6,9 @@ import InputGroup from '@components/Inputs/InputGroup';
 import { FC } from 'react';
 import UserFooter from '@components/UserFooter';
 import Pencil from '@components/Icons/Penciledit';
+import Protected from '@components/Protected';
+import { GoogleProps } from '@interfaces/props';
+import { useSession } from 'next-auth/react';
 
 
 const InputContainer:FC =({children})=>(
@@ -15,7 +18,16 @@ const InputContainer:FC =({children})=>(
 )
 
 
-const SettingsUser: NextPage = () => (
+const SettingsUser: NextPage<GoogleProps> = () => {
+    const { data: session } = useSession();
+
+    if(!session)
+        return (
+            <Protected
+                message="Debes iniciar sesión antes de visitar esta página"
+                link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+            />
+        );
     <>
         <Head>
             <title>Settings</title>
@@ -109,6 +121,7 @@ const SettingsUser: NextPage = () => (
 
     </>
 
-);
+};
+
 
 export default SettingsUser;
