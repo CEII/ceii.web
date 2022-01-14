@@ -6,14 +6,14 @@ import { UserCardProps } from 'interfaces/props';
 const ActivitySection: FunctionComponent<UserCardProps> = ({ isPair }) => {
     return (
         <div className="flex w-full justify-between mt-5 md:mt-12">
-            <span className="font-bold text-[0.8rem] sm:text-[0.85rem] relative md:text-[1rem]"> Actividad </span>
+            <span className="font-bold text-[0.830rem] md:text-[1rem] lg:text-lg"> Actividad </span>
             <Menu
                 as="div"
                 className={`${
                     isPair ? 'text-white bg-secondary' : 'bg-white text-secondary'
                 } flex flex-col rounded-xl w-2/3 md:w-2/4`}
             >
-                <Menu.Button className=" h-max px-2 py-1 text-[0.6rem] flex justify-between items-center font-semibold sm:text-[0.65rem] md:text-[0.75rem]">
+                <Menu.Button className=" h-max px-2 py-1 text-[0.6rem] flex justify-between items-center font-semibold md:text-[0.75rem]">
                     {/* Aca ira el rol actual del usuario */}
                     Actividad
                     <ChevronDownIcon className="w-4" />

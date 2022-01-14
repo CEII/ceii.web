@@ -40,7 +40,8 @@ const Users: NextPage = () => {
                         <div className="flex flex-row mt-5 w-full space-x-2 justify-items-center">
                             <div className="items-center w-full rounded-full flex bg-white">
                                 <InputGroup
-                                    className="font-sans h-max placeholder:text-left placeholder:italic text-justify w-full static text-[0.7rem] sm:text-[0.830rem] md:text-[0.9rem] lg:text-[1.2rem]"
+                                    className="font-sans h-max placeholder:text-left placeholder:italic 
+                                    text-justify w-full static text-[0.7rem] sm:text-[0.830rem] md:text-[0.9rem] lg:text-[1.2rem]"
                                     placeholder="Busca un usuario por correo"
                                     type="text"
                                     identifier="user"
@@ -57,20 +58,16 @@ const Users: NextPage = () => {
                                 <PlusCircleIcon className="w-6 text-secondary font-bold sm:w-7 lg:w-9" />
                             </button>
                         </div>
-                        <div className="space-y-6 flex-wrap md:space-y-5 md:w-full md:max-w-full">
+                        <div className="space-y-6 md:space-y-5 md:w-full md:max-w-full lg:flex lg:flex-wrap lg:space-y-0 lg:justify-between lg:gap-4">
                             <UserCard />
                             <UserCard isFacilitator />
                             {/* Cada dos (segun figma) se deben poner en color secondary */}
                             <UserCard isPair />
                             <UserCard isFacilitator isPair />
-                            <UserCard />
-                            <UserCard isFacilitator />
-                            <UserCard isPair />
-                            <UserCard isFacilitator isPair />
-                            <UserCard />
-                            <UserCard isFacilitator />
                         </div>
-                        <Pagination />
+                        <div className="w-full">
+                            <Pagination />
+                        </div>
                     </div>
                 </CenteredContainer>
             </Layout>
