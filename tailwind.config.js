@@ -10,6 +10,9 @@ module.exports = {
                 accent: '#ED554C',
                 secondary: '#033C71',
             },
+            screens: {
+                'iphone': {'max': '380px'},
+              },
         },
     },
     plugins: ['@tailwindcss/forms'],
