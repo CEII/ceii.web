@@ -6,11 +6,11 @@ import { ChevronDownIcon } from '@heroicons/react/solid';
 import ActivitySection from './ActivitySection/ActivitySection';
 
 const UserCard: FunctionComponent<UserCardProps> = ({
-    /* email,
+    email,
     name,
     lastName,
     imageUrl,
-    role, */
+    role,
     isFacilitator,
     isPair,
 }) => {
@@ -21,18 +21,19 @@ const UserCard: FunctionComponent<UserCardProps> = ({
             } flex flex-wrap w-full rounded-xl p-2 items-center justify-between lg:w-[47%]`}
         >
             <div className="flex flex-row space-x-2 items-center mr-1">
-                {/* imageUrl ???? */}
                 <ImageContainer
+                    src={imageUrl}
                     className="rounded-full border-2 w-7 h-7 border-accent md:w-9 md:h-9 lg:h-[2.869rem] lg:w-[2.869rem] xl:w-12 xl:h-12"
                     alt="foto de perfil"
+                    rounded
                 />
                 <div className="leading-4">
                     <p className="text-xs font-bold text-[0.85rem] md:text-[1rem] lg:text-[1.1rem] xl:text-lg">
-                        Walter Morales {/* name */} {/* lastName */}
+                        {name} {lastName}
                     </p>
                     {/* Que redirija al email? */}
                     <p className="text-[0.65rem] underline italic md:text-[0.75rem] lg:text-[0.8rem] xl:text-[0.9rem]">
-                        00019618@uca.edu.sv {/* email */}
+                        {email}
                     </p>
                 </div>
             </div>
@@ -49,7 +50,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({
                 >
                     <Menu.Button className=" h-max px-2 py-1 text-[0.6rem] flex justify-between font-semibold md:text-[0.75rem] xl:text-[0.85rem]">
                         {/* Aca ira el rol actual del usuario */}
-                        Rol {/* role.name */}
+                        {/*Rol*/} {role}
                         <ChevronDownIcon className="w-4" />
                     </Menu.Button>
                     <Menu.Items className="flex flex-col text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold md:text-[0.75rem] xl:text-[0.85rem]">

@@ -62,6 +62,11 @@ export interface PreuCardProps {
 }
 
 export interface UserCardProps {
+    email: string;
+    name: string;
+    lastName: string;
+    imageUrl: string;
+    role: string;
     isPair?: boolean; // Para que cada dos cartas de usuarios sean azules y las demas blancas
     isFacilitator?: boolean; // si es Facilitador que muestre la actividad
 }

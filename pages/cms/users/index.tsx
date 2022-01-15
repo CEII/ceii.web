@@ -17,13 +17,13 @@ const Users: NextPage = () => {
     const { data: session } = useSession();
     const { data } = useQuery('user', () => userService.getUsers());
 
-    if (!session)
+    /*if (!session)
         return (
             <Protected
                 message="Debes iniciar sesión antes de visitar esta página"
                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
             />
-        );
+        );*/
 
     // A no sé que le pasa tengo que poner el index y el size pero no sé cómo
 
@@ -66,17 +66,17 @@ const Users: NextPage = () => {
                             </button>
                         </div>
                         <div className="space-y-6 md:space-y-5 md:w-full md:max-w-full lg:flex lg:flex-wrap lg:space-y-0 lg:justify-between lg:gap-4">
-                            {/* 
-                               => A ayuda no me funciona el map
+                             
+                               {/*Funciona el map pero no el cambiar de colores segun Figma*/}
                             {data &&
-                                data.user.map(({ email, name, lastName, imageUrl }) => (
-                                    <UserCard key={?} email={email} name={name} lastName={lastName} imageUrl={imageUrl} />
+                                data.users.map(({ email, name, lastName, imageUrl,role}) => (
+                                    <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
                                 ))}
-                                        */}
-                            <UserCard isFacilitator />
+                                        
+                            {/*<UserCard isFacilitator />*/}
                             {/* Cada dos (segun figma) se deben poner en color secondary */}
-                            <UserCard isPair />
-                            <UserCard isFacilitator isPair />
+                            {/*<UserCard isPair />
+                            <UserCard isFacilitator isPair />*/}
                         </div>
                         <div className="w-full">
                             <Pagination />
