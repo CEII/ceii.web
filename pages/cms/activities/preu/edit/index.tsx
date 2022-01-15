@@ -45,14 +45,14 @@ const New: NextPage<GoogleProps> = () => {
             </Head>
             <Layout showFooter showNav>
                 <div className="flex justify-center md:pt-6">
-                    <div className='flex flex-col iphone:space-y-4 md:space-y-6 md:space-y-0 lg:space-y-24 xl:space-y-6'>
+                    <div className='flex flex-col iphone:space-y-4 md:space-y-2 md:space-y-0 lg:space-y-14 xl:space-y-6'>
                         <section>
                             <h1 className='text-white font-bold text-center iphone:text-xl md:text-4xl lg:text-6xl xl:text-4xl'>Talleres Socioafectivos</h1>
                             <p className='text-white italic iphone:text-sm md:text-xl lg:text-2xl xl:text-2xl text-center'>Agrega la informacion necesaria</p>
                         </section>
 
-                        <form className='md:pt-4 xl:pt-0 iphone:space-y-5 xl:flex xl:justify-around xl:space-x-44 2xl:space-x-72'>
-                            <section className='flex flex-col iphone:space-y-5'>
+                        <form className='md:pt-4 xl:pt-0 iphone:space-y-5 md:space-y-10 lg:space-y-20 xl:space-y-0 xl:flex xl:justify-around xl:space-x-44 2xl:space-x-72'>
+                            <section className='flex flex-col iphone:space-y-5 lg:space-y-5 xl:space-y-0 2xl:space-y-0'>
                                 <div className='flex flex-col-reverse text-white font-medium group iphone:text-xs lg:text-2xl xl:texl-lg sm:text-sm'>
 
                                     <div className='flex bg-white w-1/2 text-red-500 rounded-full mt-2 iphone:w-2/3 iphone:h-4 iphone:text-xs md:mb-8 md:w-2/3 lg:text-lg xl:w-2/3'>
@@ -70,7 +70,7 @@ const New: NextPage<GoogleProps> = () => {
 
                                 </div>
 
-                                <section className='flex iphone:space-x-3 md:space-x-4 iphone:text-xs lg:text-2xl'>
+                                <section className='flex iphone:space-x-3 md:space-x-4 md:h-24 xl:h-32 2xl:h-32 iphone:text-xs lg:text-2xl'>
                                     <div className='md:w-1/2 iphone:w-1/2'>
                                         <div className='flex flex-col-reverse text-white font-medium group md:mb-14 iphone:w-full'>
                                             <InputGroup
@@ -104,7 +104,7 @@ const New: NextPage<GoogleProps> = () => {
 
                                             <Listbox value={selectedfac} onChange={setSelectedfac}>
                                                 <div className="relative mt-1 iphone:mt-0 iphone:w-full">
-                                                    <Listbox.Button className="relative iphone:h-6 w-full py-1 pl-3 pr-10 text-left bg-white rounded-full shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                                                    <Listbox.Button className="relative iphone:h-6 md:h-8 lg:h-10 2xl:h-12 w-full py-1 pl-3 pr-10 text-left bg-white rounded-full shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
                                                         <span className="block truncate">{selectedfac.email}</span>
                                                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                                             <SelectorIcon
@@ -162,16 +162,16 @@ const New: NextPage<GoogleProps> = () => {
 
                             </section>
 
-                            <section className='flex flex-col xl:space-y-10 iphone:space-y-5'>
+                            <section className='flex flex-col xl:space-y-10 iphone:space-y-5 md:space-y-10'>
                                 <section className='flex md:space-x-4 iphone:text-xs lg:text-2xl'>
                                     <div className='iphone:w-1/2 md:w-1/2'>
 
                                         <div className='flex flex-col'>
-                                            <label className='iphone:text-lg xl:text-lg text-white font-bold'>Modalidad</label>
+                                            <label className='iphone:text-lg xl:text-lg md:text-lg lg:text-lg text-white font-bold'>Modalidad</label>
 
                                             <Listbox value={selected} onChange={setSelected}>
-                                                <div className="relative mt-1 iphone:mt-0 iphone:w-2/3">
-                                                    <Listbox.Button className="relative iphone:h-6 w-full py-1 pl-3 pr-10 text-left bg-white rounded-full shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                                                <div className="relative mt-1 iphone:mt-0 iphone:w-2/3 md:mt-0 lg:mt-0">
+                                                    <Listbox.Button className="relative iphone:h-6 md:h-8 lg:h-10 w-full py-1 pl-3 pr-10 text-left bg-white rounded-full shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
                                                         <span className="block truncate">{selected.name}</span>
                                                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                                             <SelectorIcon
@@ -244,7 +244,7 @@ const New: NextPage<GoogleProps> = () => {
                                 </section>
                                 <div>
                                     <p className='text-white font-bold iphone:text-lg md:text-xl'>Descripcion</p>
-                                    <textarea className="rounded iphone:w-full md:w-full md:mb-1 md:h-48 xl:mb-0" placeholder='Descripcion' required />
+                                    <textarea className="rounded iphone:w-full md:w-full md:mb-1 md:h-48 xl:h-48 xl:mb-0" placeholder='Descripcion' required />
                                     <div className='flex bg-white w-1/2 text-red-500 rounded-full mt-2 iphone:w-2/3 iphone:h-4 iphone:text-xs md:mt-0 md:mb-8 md:w-2/3 lg:text-lg xl:w-2/3'>
                                         <ExclamationCircleIcon className='w-5 ml-2' />
                                         <p>Introduce un titulo valido</p>
@@ -256,7 +256,7 @@ const New: NextPage<GoogleProps> = () => {
 
 
 
-                        <div className='flex justify-center iphone:mt-5 '>
+                        <div className='flex justify-center iphone:mt-5'>
                             <a href="" className='btn btn-primary iphone:w-63 md:w-60 lg:h-14 lg:text-2xl xl:h-12 text-center'>
                                 Agregar
                             </a>
