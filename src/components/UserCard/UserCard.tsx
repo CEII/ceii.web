@@ -5,15 +5,7 @@ import { Menu } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/solid';
 import ActivitySection from './ActivitySection/ActivitySection';
 
-const UserCard: FunctionComponent<UserCardProps> = ({
-    email,
-    name,
-    lastName,
-    imageUrl,
-    role,
-    isFacilitator,
-    isPair,
-}) => {
+const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, imageUrl, role, isPair }) => {
     return (
         <div
             className={`${
@@ -50,21 +42,18 @@ const UserCard: FunctionComponent<UserCardProps> = ({
                 >
                     <Menu.Button className=" h-max px-2 py-1 text-[0.6rem] flex justify-between font-semibold md:text-[0.75rem] xl:text-[0.85rem]">
                         {/* Aca ira el rol actual del usuario */}
-                        {/*Rol*/} {role}
+                        {/* Rol */} {role}
                         <ChevronDownIcon className="w-4" />
                     </Menu.Button>
                     <Menu.Items className="flex flex-col text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold md:text-[0.75rem] xl:text-[0.85rem]">
                         <Menu.Item>
-                            <span> Admin </span>
-                        </Menu.Item>
-                        <Menu.Item>
-                            <span> Facilitador </span>
+                            <a className="bg-red-600"> {role} </a>
                         </Menu.Item>
                     </Menu.Items>
                 </Menu>
             </div>
             {/* Ver en Pages/cms/users */}
-            {isFacilitator && <ActivitySection isPair={!isPair} />}
+            {role === 'Facilitator' && <ActivitySection isPair={!isPair} />}
         </div>
     );
 };

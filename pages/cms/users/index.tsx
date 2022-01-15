@@ -9,24 +9,28 @@ import InputGroup from '@components/Inputs/InputGroup';
 import { SearchCircleIcon, PlusCircleIcon } from '@heroicons/react/solid';
 import Pagination from '@components/Pagination';
 import { useQuery } from 'react-query';
-import { useSession } from 'next-auth/react';
-import Protected from '@components/Protected';
 import * as userService from '@services/users/userService';
 
 const Users: NextPage = () => {
-    const { data: session } = useSession();
+    // const { data: session } = useSession();
     const { data } = useQuery('user', () => userService.getUsers());
 
-    /*if (!session)
-        return (
-            <Protected
-                message="Debes iniciar sesión antes de visitar esta página"
-                link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
-            />
-        );*/
+    // if (!session)
+    //     return (
+    //         <Protected
+    //             message="Debes iniciar sesión antes de visitar esta página"
+    //             link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+    //         />
+    //     );
 
-    // A no sé que le pasa tengo que poner el index y el size pero no sé cómo
-
+    // eslint-disable-next-line consistent-return
+    function showUserCards() {
+        if (data)
+            return data.users.map(({ email, name, lastName, imageUrl, role }) => (
+                // eslint-disable-next-line react/jsx-key
+                <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
+            ));
+    }
     return (
         <>
             <Head>
@@ -66,17 +70,11 @@ const Users: NextPage = () => {
                             </button>
                         </div>
                         <div className="space-y-6 md:space-y-5 md:w-full md:max-w-full lg:flex lg:flex-wrap lg:space-y-0 lg:justify-between lg:gap-4">
-                             
-                               {/*Funciona el map pero no el cambiar de colores segun Figma*/}
-                            {data &&
-                                data.users.map(({ email, name, lastName, imageUrl,role}) => (
-                                    <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
-                                ))}
-                                        
-                            {/*<UserCard isFacilitator />*/}
+                            {showUserCards()}
+                            {/* <UserCard isFacilitator /> */}
                             {/* Cada dos (segun figma) se deben poner en color secondary */}
-                            {/*<UserCard isPair />
-                            <UserCard isFacilitator isPair />*/}
+                            {/* <UserCard isPair />
+                            <UserCard isFacilitator isPair /> */}
                         </div>
                         <div className="w-full">
                             <Pagination />
