@@ -28,7 +28,6 @@ const New: NextPage<GoogleProps> = () => {
 
     const { data: session } = useSession();
 
-    /*
     if (!session)
         return (
             <Protected
@@ -36,8 +35,7 @@ const New: NextPage<GoogleProps> = () => {
                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
             />
         );
-    */
-
+    
     return (
         <>
             <Head>
