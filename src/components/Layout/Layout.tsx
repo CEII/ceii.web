@@ -6,7 +6,7 @@ import { FC } from 'react';
 import { Toaster } from 'react-hot-toast';
 
 const Layout: FC<LayoutProps> = ({ children, showFooter, showNav }) => (
-    <main className="flex flex-col max-w-screen overflow-y-auto h-[92vh]">
+    <main className="flex flex-col overflow-y-auto h-[92vh]">
         <Toaster />
         {showNav && <Navbar />}
         {children}
