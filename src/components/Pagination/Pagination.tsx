@@ -1,10 +1,12 @@
 import { FC } from 'react';
 import ReactPaginate from 'react-paginate';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/solid';
+import { PaginationProps } from '@interfaces/props';
 
-const Pagination: FC = () => {
+const Pagination: FC<PaginationProps> = (props) => {
     const handlePageClick = (data: any) => {
-        console.log('Clicked page: ', data.selected + 1);
+        //console.log('Clicked page: ', data.selected + 1);
+        props.setOffset(data.selected + 1);
     };
 
     return (

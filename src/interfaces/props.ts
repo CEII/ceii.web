@@ -69,3 +69,7 @@ export interface UserCardProps {
     role?: string;
     isPair?: boolean; // Para que cada dos cartas de usuarios sean azules y las demas blancas
 }
+
+export interface PaginationProps {
+    setOffset?: (offset: number) => void;
+}

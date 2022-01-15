@@ -3,6 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 // import Protected from '@components/Protected';
 // import { useSession } from 'next-auth/react';
+import { useState, useEffect } from 'react';
 import UserCard from '@components/UserCard';
 import CenteredContainer from '@components/Containers/CenteredContainer';
 import InputGroup from '@components/Inputs/InputGroup';
@@ -12,8 +13,13 @@ import { useQuery } from 'react-query';
 import * as userService from '@services/users/userService';
 
 const Users: NextPage = () => {
+    const [offset,setOffset] = useState(1);
     // const { data: session } = useSession();
-    const { data } = useQuery('user', () => userService.getUsers());
+    const { data, refetch } = useQuery('user', () => userService.getUsers({index: offset,size:10}));
+
+    useEffect(() => {
+        refetch();
+    }, [offset,refetch]);
 
     // if (!session)
     //     return (
@@ -31,6 +37,7 @@ const Users: NextPage = () => {
                 <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
             ));
     }
+
     return (
         <>
             <Head>
@@ -77,7 +84,7 @@ const Users: NextPage = () => {
                             <UserCard isFacilitator isPair /> */}
                         </div>
                         <div className="w-full">
-                            <Pagination />
+                            <Pagination setOffset={setOffset}/>
                         </div>
                     </div>
                 </CenteredContainer>
