@@ -25,6 +25,7 @@
     "react-google-login": "^5.2.2",
     "react-hot-toast": "^2.2.0",
     "react-query": "^3.34.7",
+    "shortid": "^2.2.16",
     "sitemap": "^7.1.0"
   },
   "devDependencies": {

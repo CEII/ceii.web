@@ -60,3 +60,17 @@ export interface PreuCardProps {
     isEnrolled?: boolean;
     isFiltered?: boolean;
 }
+
+export interface Socials {
+    name: string;
+    url: string;
+}
+
+export interface CardTeamProps {
+    email: string;
+    name: string;
+    lastName: string;
+    imgUrl: string;
+    participation: Array<string>;
+    socials: Array<Socials>;
+}
