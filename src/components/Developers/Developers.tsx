@@ -4,55 +4,55 @@ import { FunctionComponent, useEffect } from 'react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin, faGithub, faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { CardTeamProps } from '@interfaces/props';
-import { useQuery} from 'react-query';
+import { useQuery } from 'react-query';
 import { getDevs } from '@services/devs/devService';
 
 const CardTeam: FunctionComponent<CardTeamProps> = ({ email, name, lastName, imgUrl, participation }) => {
     return (
         <CenteredContainer
-        orientation="vertical"
-        className="bg-accent w-full rounded-2xl smooth-transition p-4 my-2 space-y-4 first:bg-secondary hover:scale-105 md:w-5/12 md:mx-4 lg:w-80"
-    >
-        <CenteredContainer orientation="vertical" className="text-center space-y-2">
-            <ImageContainer
-                className="bg-gray-400 border-2 border-white rounded-full w-[4.5rem] h-[4.5rem] lg:h-20 lg:w-20"
-                alt="profile"
-                src= { imgUrl}
-                rounded={ true }
-            />
-            <p className="flex flex-col flex-start">
-                <span className="font-semibold text-lg">{ `${name} ${lastName}` }</span>
-                <a href={`mailto:${email}`} className="italic underline text-xs lg:text-sm">
-                    { email}
+            orientation="vertical"
+            className="bg-accent w-full rounded-2xl smooth-transition p-4 my-2 space-y-4 first:bg-secondary hover:scale-105 md:w-5/12 md:mx-4 lg:w-80"
+        >
+            <CenteredContainer orientation="vertical" className="text-center space-y-2">
+                <ImageContainer
+                    className="bg-gray-400 border-2 border-white rounded-full w-[4.5rem] h-[4.5rem] lg:h-20 lg:w-20"
+                    alt="profile"
+                    src={imgUrl}
+                    rounded
+                />
+                <p className="flex flex-col flex-start">
+                    <span className="font-semibold text-lg">{`${name} ${lastName}`}</span>
+                    <a href={`mailto:${email}`} className="italic underline text-xs lg:text-sm">
+                        {email}
+                    </a>
+                </p>
+            </CenteredContainer>
+            <CenteredContainer orientation="vertical" className="font-bold text-sm space-y-2">
+                {participation.map((ptn, index) => (
+                    <span key={index} className="px-2 py-1 bg-white rounded-full text-secondary">
+                        {ptn}
+                    </span>
+                ))}
+            </CenteredContainer>
+            <CenteredContainer orientation="horizontal" className="pt-4 space-x-4">
+                <a>
+                    <Icon icon={faInstagram} className="text-2xl hover:scale-125 smooth-transition" />
                 </a>
-            </p>
+                <a>
+                    <Icon icon={faLinkedin} className="text-2xl hover:scale-125 smooth-transition" />
+                </a>
+                <a>
+                    <Icon icon={faTwitter} className="text-2xl hover:scale-125 smooth-transition" />
+                </a>
+                <a>
+                    <Icon icon={faFacebook} className="text-2xl hover:scale-125 smooth-transition" />
+                </a>
+                <a>
+                    <Icon icon={faGithub} className="text-2xl hover:scale-125 smooth-transition" />
+                </a>
+            </CenteredContainer>
         </CenteredContainer>
-        <CenteredContainer orientation="vertical" className="font-bold text-sm space-y-2">
-            {
-                participation.map( (ptn, index) => (
-                    <span key={index} className="px-2 py-1 bg-white rounded-full text-secondary">{ ptn }</span>
-                    )
-                )
-            }
-        </CenteredContainer>
-        <CenteredContainer orientation="horizontal" className="pt-4 space-x-4">
-            <a>
-                <Icon icon={faInstagram} className="text-2xl hover:scale-125 smooth-transition" />
-            </a>
-            <a>
-                <Icon icon={faLinkedin} className="text-2xl hover:scale-125 smooth-transition" />
-            </a>
-            <a>
-                <Icon icon={faTwitter} className="text-2xl hover:scale-125 smooth-transition" />
-            </a>
-            <a>
-                <Icon icon={faFacebook} className="text-2xl hover:scale-125 smooth-transition" />
-            </a>
-            <a>
-                <Icon icon={faGithub} className="text-2xl hover:scale-125 smooth-transition" />
-            </a>
-        </CenteredContainer>
-    </CenteredContainer>)
+    );
 };
 
 const Team: FunctionComponent = () => {
@@ -75,21 +75,24 @@ const Team: FunctionComponent = () => {
                 </div>
                 {/* Cards-container */}
                 <div className="flex flex-wrap items-center justify-center text-white px-2">
-
-                    { data && data.developers.map(({ user, participation }) => (
-                        user &&
-                        <CardTeam
-                            key={user.email}
-                            email={user.email}
-                            name={user.name}
-                            lastName={user.lastName}
-                            imgUrl={user.imageUrl}
-                            participation={participation.split(", ")}/>
-                    ))}
+                    {data &&
+                        data.developers.map(
+                            ({ user, participation }) =>
+                                user && (
+                                    <CardTeam
+                                        key={user.email}
+                                        email={user.email}
+                                        name={user.name}
+                                        lastName={user.lastName}
+                                        imgUrl={user.imageUrl}
+                                        participation={participation.split(', ')}
+                                    />
+                                )
+                        )}
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Team;
