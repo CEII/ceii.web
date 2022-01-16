@@ -3,10 +3,10 @@ import ReactPaginate from 'react-paginate';
 import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from '@heroicons/react/solid';
 import { PaginationProps } from '@interfaces/props';
 
-const Pagination: FC<PaginationProps> = (props) => {
+const Pagination: FC<PaginationProps> = ({ setOffset, allPages }) => {
     const handlePageClick = (data: any) => {
-        //console.log('Clicked page: ', data.selected + 1);
-        props.setOffset(data.selected + 1);
+        // eslint-disable-next-line react/destructuring-assignment
+        setOffset(data.selected + 1);
     };
 
     return (
@@ -22,9 +22,9 @@ const Pagination: FC<PaginationProps> = (props) => {
                 previousLabel={<ChevronDoubleLeftIcon className="h-6 md:h-7 lg:h-7 xl:h-8" />}
                 nextLabel={<ChevronDoubleRightIcon className="h-6 md:h-7 lg:h-7 xl:h-8" />}
                 breakLabel="..."
-                pageCount={10}
+                pageCount={allPages}
                 marginPagesDisplayed={2}
-                pageRangeDisplayed={1}
+                pageRangeDisplayed={3}
                 onPageChange={handlePageClick}
             />
         </div>

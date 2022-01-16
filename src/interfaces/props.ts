@@ -72,4 +72,5 @@ export interface UserCardProps {
 
 export interface PaginationProps {
     setOffset?: (offset: number) => void;
+    allPages?: number;
 }

@@ -11,15 +11,22 @@ import { SearchCircleIcon, PlusCircleIcon } from '@heroicons/react/solid';
 import Pagination from '@components/Pagination';
 import { useQuery } from 'react-query';
 import * as userService from '@services/users/userService';
+import Spinner from '@components/Spinner';
 
 const Users: NextPage = () => {
     const [offset, setOffset] = useState(1);
+    const [total, setTotalPages] = useState(0);
     // const { data: session } = useSession();
     const { data, refetch } = useQuery('user', () => userService.getUsers({ index: offset }));
 
     useEffect(() => {
         refetch();
-    }, [offset, refetch]);
+
+        if (data) {
+            // eslint-disable-next-line no-return-assign
+            [data.pagingInfo].map(({ totalPages }) => setTotalPages(totalPages)); // Se obtiene el total de paginas de la peticion
+        }
+    }, [data, offset, refetch]);
 
     // if (!session)
     //     return (
@@ -29,13 +36,19 @@ const Users: NextPage = () => {
     //         />
     //     );
 
+    // Si aun no hay datos se muestra el <Spinner />
+    if (!data) {
+        return <Spinner />;
+    }
+
     // eslint-disable-next-line consistent-return
     function showUserCards() {
-        if (data)
+        if (data) {
             return data.users.map(({ email, name, lastName, imageUrl, role }) => (
                 // eslint-disable-next-line react/jsx-key
                 <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
             ));
+        }
     }
 
     return (
@@ -84,7 +97,7 @@ const Users: NextPage = () => {
                             <UserCard isFacilitator isPair /> */}
                         </div>
                         <div className="w-full">
-                            <Pagination setOffset={setOffset} />
+                            <Pagination setOffset={setOffset} allPages={total} />
                         </div>
                     </div>
                 </CenteredContainer>
