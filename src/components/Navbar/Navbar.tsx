@@ -50,6 +50,13 @@ const Navbar: FC = () => {
                                         </a>
                                     </Link>
                                 </li>
+                                <li className="w-full transition-all duration-300 hover:text-white hover:bg-primary flex justify-center items-center text-center h-14 lg:h-20">
+                                    <Link href="/users/me">
+                                        <a className="w-full h-full font-bold text-2xl flex items-center justify-center">
+                                            Ajustes
+                                        </a>
+                                    </Link>
+                                </li>
                                 <li className="mt-auto w-full transition-all duration-300 hover:text-white hover:bg-primary flex justify-center items-center text-center h-14 mb-6 lg:h-20">
                                     <button
                                         type="button"

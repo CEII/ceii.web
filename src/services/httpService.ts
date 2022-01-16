@@ -29,6 +29,8 @@ export const request = async (url: string, method: Method, params?: any, extraOp
         options.data = params;
     }
 
+    console.log(headers);
+
     return axios({
         url: completeUrl,
         method,
