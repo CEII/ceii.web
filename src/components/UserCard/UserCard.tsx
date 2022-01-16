@@ -25,7 +25,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, ima
                     <p className="text-xs break-words font-bold text-[0.85rem] md:text-[1rem] lg:text-[1.1rem] xl:text-lg">
                         {name} {lastName}
                     </p>
-                    <p className="text-[0.65rem] underline italic md:text-[0.75rem] lg:text-[0.8rem] xl:text-[0.9rem]">
+                    <p className="text-[0.61rem] underline italic md:text-[0.75rem] lg:text-[0.8rem] xl:text-[0.9rem]">
                         {email}
                     </p>
                 </div>
