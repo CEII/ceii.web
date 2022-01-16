@@ -10,7 +10,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, ima
         <div
             className={`${
                 isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
-            } flex flex-wrap w-full rounded-xl p-2 items-center justify-between lg:w-[47%]`}
+            } flex flex-wrap w-full rounded-xl p-2 items-center justify-between xl:w-[47%]`}
         >
             <div className="flex flex-row space-x-2 items-center mr-1 w-[60%]">
                 <div>
@@ -39,7 +39,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, ima
                     as="div"
                     className={`${
                         isPair ? 'bg-white text-secondary' : 'bg-secondary text-white'
-                    } flex flex-col rounded-xl w-[4rem] justify-center md:w-32 lg:w-20 xl:w-28`}
+                    } flex flex-col rounded-xl w-[4rem] justify-center md:w-32 xl:w-28`}
                 >
                     <Menu.Button className=" h-max px-2 py-1 text-[0.6rem] flex justify-between font-semibold md:text-[0.75rem] xl:text-[0.85rem]">
                         {/* Aca ira el rol actual del usuario */}
