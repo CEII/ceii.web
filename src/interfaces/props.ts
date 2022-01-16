@@ -61,3 +61,7 @@ export interface PreuCardProps {
     isEnrolled?: boolean;
     isFiltered?: boolean;
 }
+
+export interface nameFooter {
+    name: LabelProps;
+}

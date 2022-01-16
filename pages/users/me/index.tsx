@@ -17,14 +17,14 @@ import toast from 'react-hot-toast';
 import useDelay from '@hooks/useDelay';
 import { LONG_NOTIFICATION } from '@constants/notify';
 import { USER_IMAGE } from '@constants/session';
-
+import { USER_DISPLAY_NAME } from '@constants/session';
 const InputContainer: FC = ({ children }) => (
     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-secondary font-medium group">{children}</div>
 );
 
 const SettingsUser: NextPage = () => {
     const { data: session } = useSession();
-    const [user, setUser] = useState({ imageUrl: storageService.get(USER_IMAGE) });
+    const [user, setUser] = useState({ imageUrl: storageService.get(USER_IMAGE),name: storageService.get(USER_DISPLAY_NAME) });
     const [loadStatus, show, hide] = useDelay(500);
     const { data, mutateAsync } = useMutation((body: any) => updateUser(body));
 
@@ -32,7 +32,7 @@ const SettingsUser: NextPage = () => {
         if (data) console.log(data);
     }, [data]);
 
-    if (!session)
+     if (!session)
         return (
             <Protected
                 message="Debes iniciar sesión antes de visitar esta página"
@@ -142,7 +142,7 @@ const SettingsUser: NextPage = () => {
                                 </div>
                             </form>
                         </div>
-                        <UserFooter />
+                        <UserFooter name={{text:user.name}} />
                     </div>
                 </section>
             </Layout>
