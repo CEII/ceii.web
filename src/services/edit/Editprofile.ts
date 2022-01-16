@@ -1,3 +1,3 @@
 import { request } from "../httpService";
 
- export const Updateuser = ( ) => request ('/api/Identity/update/me', 'PATCH',null);
+ export const Updateuser = (params: any, id:string ) => request ('/api/Identity/update/me', 'PATCH', params, { needsAuth: true });

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Layout from '@components/Layout';
 import Head from 'next/head';
-import React, { useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { ImageContainer } from '@components/ImageContainer';
 import InputGroup from '@components/Inputs/InputGroup';
 import { FC } from 'react';
@@ -10,8 +10,13 @@ import Pencil from '@components/Icons/Penciledit';
 import Protected from '@components/Protected';
 import { GoogleProps } from 'interfaces/props';
 import { useSession } from 'next-auth/react';
+import { useMutation } from 'react-query';
+import { Updateuser } from '@services/edit/Editprofile';
+import { useRouter } from 'next/router';
 
-
+import toast from 'react-hot-toast';
+import useDelay from '@hooks/useDelay';
+import { LONG_NOTIFICATION } from '@constants/notify';
 
 const InputContainer:FC =({children})=>(
     <div className="flex flex-col-reverse space-y-2 space-y-reverse text-secondary font-medium group">
@@ -19,8 +24,8 @@ const InputContainer:FC =({children})=>(
     </div>
 )
 
-const SettingsUser: NextPage<GoogleProps> = () => {
-  /*  const { data: session } = useSession();
+const verification: NextPage<GoogleProps> = () => {
+   const { data: session } = useSession();
     
     if(!session)
         return (
@@ -29,9 +34,49 @@ const SettingsUser: NextPage<GoogleProps> = () => {
                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
             />
         );
-*/
 
-        const [pic, setPic] = useState(typeof window !== "undefined" ? localStorage.getItem("image") : null);
+
+       
+
+};
+
+const SettingsUser: FunctionComponent = () => {
+    const [pic, setPic] = useState(typeof window !== "undefined" ? localStorage.getItem("image") : null);
+    // const [pic, setPic] = useState(typeof window !== "undefined" ?)
+    const router = useRouter();
+
+    const [loadStatus, show, hide] = useDelay(500);
+
+    const { id }=router.query;
+    const { mutateAsync } = useMutation((body: any) => Updateuser(body,id as string));
+
+    async function onSubmit(e) {
+        show();
+        e.preventDefault();
+        const formData = new FormData(e.target as HTMLFormElement);
+        const body = Object.fromEntries(formData);
+
+        if (body.name != 'test1' ) {
+            toast.success('si');
+            return;
+        }
+
+        try {
+            await mutateAsync(body);
+
+            toast.success('Actualizados', LONG_NOTIFICATION);
+            hide();
+        } catch (err: any) {
+            if (err.status === 401) {
+                toast.error(
+                    'Error',
+                    LONG_NOTIFICATION
+                );
+                hide();
+            }
+        }
+    }
+
             
         return(
         <>
@@ -62,14 +107,17 @@ const SettingsUser: NextPage<GoogleProps> = () => {
 
                             </div>
                             
-                            <form className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:m-14">
+                            <form className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:m-14"
+                                onSubmit={onSubmit}
+                            >
+                                
                                 <InputContainer>
                                     <InputGroup
                                         placeholder=""
                                         type="text"
                                         identifier="name"
-                                        minLength={19}
-                                        maxLength={19}
+                                        minLength={2}
+                                        maxLength={20}
                                         label={{ text: 'Nombre' }}
                                         className="bg-gray-300"
                                     />
@@ -79,7 +127,7 @@ const SettingsUser: NextPage<GoogleProps> = () => {
                                         placeholder=""
                                         type="text"
                                         identifier="lastname"
-                                        minLength={19}
+                                        minLength={2}
                                         maxLength={19}
                                         label={{ text: 'Apellido' }}
                                         className="bg-gray-300"
@@ -90,8 +138,8 @@ const SettingsUser: NextPage<GoogleProps> = () => {
                                         placeholder=""
                                         type="password"
                                         identifier="password"
-                                        minLength={19}
-                                        maxLength={19}
+                                        minLength={8}
+                                        maxLength={20}
                                         label={{ text: 'Contraseña' }}
                                         className="bg-gray-300"
                                     />
