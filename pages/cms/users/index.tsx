@@ -13,13 +13,13 @@ import { useQuery } from 'react-query';
 import * as userService from '@services/users/userService';
 
 const Users: NextPage = () => {
-    const [offset,setOffset] = useState(1);
+    const [offset, setOffset] = useState(1);
     // const { data: session } = useSession();
-    const { data, refetch } = useQuery('user', () => userService.getUsers({index: offset,size:10}));
+    const { data, refetch } = useQuery('user', () => userService.getUsers({ index: offset }));
 
     useEffect(() => {
         refetch();
-    }, [offset,refetch]);
+    }, [offset, refetch]);
 
     // if (!session)
     //     return (
@@ -84,7 +84,7 @@ const Users: NextPage = () => {
                             <UserCard isFacilitator isPair /> */}
                         </div>
                         <div className="w-full">
-                            <Pagination setOffset={setOffset}/>
+                            <Pagination setOffset={setOffset} />
                         </div>
                     </div>
                 </CenteredContainer>

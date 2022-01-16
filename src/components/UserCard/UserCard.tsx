@@ -12,18 +12,19 @@ const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, ima
                 isPair ? 'bg-secondary text-white' : 'bg-white text-secondary'
             } flex flex-wrap w-full rounded-xl p-2 items-center justify-between lg:w-[47%]`}
         >
-            <div className="flex flex-row space-x-2 items-center mr-1">
-                <ImageContainer
-                    src={imageUrl}
-                    className="rounded-full border-2 w-7 h-7 border-accent md:w-9 md:h-9 lg:h-[2.869rem] lg:w-[2.869rem] xl:w-12 xl:h-12"
-                    alt="foto de perfil"
-                    rounded
-                />
-                <div className="leading-4">
-                    <p className="text-xs font-bold text-[0.85rem] md:text-[1rem] lg:text-[1.1rem] xl:text-lg">
+            <div className="flex flex-row space-x-2 items-center mr-1 w-[60%]">
+                <div>
+                    <ImageContainer
+                        src={imageUrl}
+                        className="rounded-full border-2 w-7 h-7 border-accent md:w-9 md:h-9 lg:h-[2.869rem] lg:w-[2.869rem] xl:w-12 xl:h-12"
+                        alt="foto de perfil"
+                        rounded
+                    />
+                </div>
+                <div className="leading-4 ">
+                    <p className="text-xs break-words font-bold text-[0.85rem] md:text-[1rem] lg:text-[1.1rem] xl:text-lg">
                         {name} {lastName}
                     </p>
-                    {/* Que redirija al email? */}
                     <p className="text-[0.65rem] underline italic md:text-[0.75rem] lg:text-[0.8rem] xl:text-[0.9rem]">
                         {email}
                     </p>
@@ -47,7 +48,7 @@ const UserCard: FunctionComponent<UserCardProps> = ({ email, name, lastName, ima
                     </Menu.Button>
                     <Menu.Items className="flex flex-col text-[0.6rem] rounded-xl p-1 space-y-1 font-semibold md:text-[0.75rem] xl:text-[0.85rem]">
                         <Menu.Item>
-                            <a className="bg-red-600"> {role} </a>
+                            <a> {role} </a>
                         </Menu.Item>
                     </Menu.Items>
                 </Menu>
