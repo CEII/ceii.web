@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Layout from '@components/Layout';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ImageContainer } from '@components/ImageContainer';
 import InputGroup from '@components/Inputs/InputGroup';
 import { FC } from 'react';
@@ -10,7 +10,6 @@ import Pencil from '@components/Icons/Penciledit';
 import Protected from '@components/Protected';
 import { GoogleProps } from 'interfaces/props';
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 
 
 
@@ -21,7 +20,7 @@ const InputContainer:FC =({children})=>(
 )
 
 const SettingsUser: NextPage<GoogleProps> = () => {
-    const { data: session } = useSession();
+  /*  const { data: session } = useSession();
     
     if(!session)
         return (
@@ -30,8 +29,10 @@ const SettingsUser: NextPage<GoogleProps> = () => {
                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
             />
         );
+*/
 
-    
+        const [pic, setPic] = useState(typeof window !== "undefined" ? localStorage.getItem("image") : null);
+            
         return(
         <>
             <Head>
@@ -52,7 +53,7 @@ const SettingsUser: NextPage<GoogleProps> = () => {
                             <div className="mt-16 lg:mt-20 lg:mx-3">
                                 <h2 className="text-secondary text-center font-bold text-lg mb-8 "> Configuración de perfil</h2>
 
-                                <ImageContainer src="/img/empty.png" alt='Profile picture' className=" w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center " rounded />
+                                <ImageContainer src={pic} alt='Profile picture' className=" w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center bg-slate-700" rounded />
 
                                 <div className=' relative bottom-32 left-40 z-10 group lg:bottom-60 lg:left-48 '>
                                     <button className="  w-9 h-6 px-3  bg-gray-300 rounded-full   font-bold text-xs group-hover:bg-slate-500 group-hover:text-slate-600 "><Pencil className='w-4 h-4'/> </button>
