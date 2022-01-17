@@ -40,6 +40,14 @@ const SettingsUser: NextPage = () => {
     //         />
     //     );
 
+    function onChange(e: any) {
+        if (!e.target.files) return;
+
+        const [file] = e.target.files;
+
+        setUser({imageUrl:URL.createObjectURL(file), name:storageService.get(USER_DISPLAY_NAME)});
+    }
+
     async function onSubmit(e) {
         e.preventDefault();
 
@@ -133,6 +141,7 @@ const SettingsUser: NextPage = () => {
                                         type="file"
                                         name="picture"
                                         id="picture"  
+                                        onChange={onChange}
                                     />
                                    <label
                                     className=" text-secondary font-semibold text-lg transition-all duration-200 peer-focus:text-accent group-hover:text-accent"
