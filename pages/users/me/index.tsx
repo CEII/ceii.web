@@ -87,22 +87,11 @@ const SettingsUser: NextPage = () => {
                                     className=" self-center w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center bg-slate-700"
                                     rounded
                                 />
-                            
-                                <div className="flex flex-col-reverse self-center w-4/6 ml-4 mt-8 space-y-reverse text-white font-medium group">
-                                    <input
-                                        className="cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white "
-                                        type="file"
-                                        name="picture"
-                                        id="picture"
-                                        
-                                    />
-                                   
-                                </div>
 
                             </div>
 
                             <form
-                                className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:my-36 lg:mx-14"
+                                className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:my-28 lg:mx-14"
                                 onSubmit={onSubmit}
                             >
                                 <InputContainer>
@@ -138,11 +127,26 @@ const SettingsUser: NextPage = () => {
                                         className="bg-gray-300"
                                     />
                                 </InputContainer>
+                                <div className="flex flex-col-reverse self-center w-full space-y-reverse text-white font-medium group space-y-1">
+                                    <input
+                                        className="cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white "
+                                        type="file"
+                                        name="picture"
+                                        id="picture"  
+                                    />
+                                   <label
+                                    className=" text-secondary font-semibold text-lg transition-all duration-200 peer-focus:text-accent group-hover:text-accent"
+                                    htmlFor="picture">
+                                    Imagen de perfil
+                                    </label>
+                                </div>
                                 <div className="w-auto text-center">
-                                    <button type="submit" className="btn btn-primary mt-3 lg:mt-6">
+                                    <button type="submit" className="btn btn-primary mt-3 lg:mt-3">
                                         Actualizar
                                     </button>
                                 </div>
+
+                                
                             </form>
                         </div>
                         <UserFooter name={{text:user.name}} />
