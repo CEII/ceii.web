@@ -75,10 +75,10 @@ const Home: NextPage = () => {
                         />
                     </div>
                     <div className="w-full absolute bottom-0 left-0 z-10 text-white font-bold p-5 text-base flex justify-between items-end md:text-3xl md:p-10">
-                        <p className="cursor-default">
+                        <h1 className="cursor-default">
                             Comunidad Estudiantil de <br />
                             Ingeniería Informática
-                        </p>
+                        </h1>
                         <ImageContainer
                             src="/img/fido.png"
                             alt="fido"
