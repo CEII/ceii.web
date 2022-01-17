@@ -44,9 +44,12 @@ const Users: NextPage = () => {
     // eslint-disable-next-line consistent-return
     function showUserCards() {
         if (data) {
-            return data.users.map(({ email, name, lastName, imageUrl, role }) => (
-                // eslint-disable-next-line react/jsx-key
-                <UserCard isPair email={email} name={name} lastName={lastName} imageUrl={imageUrl} role={role.name} />
+            return data.users.map((user) => (
+                data.users.indexOf(user) === 0 || data.users.indexOf(user) === 1 ||
+                data.users.indexOf(user) === 4 || data.users.indexOf(user) === 5 ||
+                data.users.indexOf(user) === 8 || data.users.indexOf(user) === 9 ? 
+                <UserCard isPair key={user.email} email={user.email} name={user.name} lastName={user.lastName} imageUrl={user.imageUrl} role={user.role.name} /> : 
+                <UserCard key={user.email} email={user.email} name={user.name} lastName={user.lastName} imageUrl={user.imageUrl} role={user.role.name} />
             ));
         }
     }
