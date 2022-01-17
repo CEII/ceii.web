@@ -32,13 +32,13 @@ const SettingsUser: NextPage = () => {
         if (data) console.log(data);
     }, [data]);
 
-     if (!session)
-        return (
-            <Protected
-                message="Debes iniciar sesión antes de visitar esta página"
-                link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
-            />
-        );
+    //  if (!session)
+    //     return (
+    //         <Protected
+    //             message="Debes iniciar sesión antes de visitar esta página"
+    //             link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+    //         />
+    //     );
 
     async function onSubmit(e) {
         e.preventDefault();
@@ -74,8 +74,8 @@ const SettingsUser: NextPage = () => {
                     </div>
 
                     <div className="relative ring-2 ring-white bg-white  w-5/6 rounded-t-xl flex flex-col items-center max-w-screen-lg lg:h-3/4 md:h-full">
-                        <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12 lg:gap-20">
-                            <div className="mt-16 lg:mt-20 lg:mx-3">
+                        <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12">
+                            <div className="flex flex-col mt-16 lg:mt-20 lg:mx-3">
                                 <h2 className="text-secondary text-center font-bold text-lg mb-8 ">
                                     {' '}
                                     Configuración de perfil
@@ -84,22 +84,25 @@ const SettingsUser: NextPage = () => {
                                 <ImageContainer
                                     src={user.imageUrl}
                                     alt="Profile picture"
-                                    className=" w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center bg-slate-700"
+                                    className=" self-center w-28 h-28 mt-3 ring-4 rounded-full ring-accent mx-auto lg:w-56 lg:h-56 lg:self-center bg-slate-700"
                                     rounded
                                 />
-
-                                <div className=" relative bottom-32 left-40 z-10 group lg:bottom-60 lg:left-48 ">
-                                    <button
-                                        type="button"
-                                        className="w-9 h-6 px-3  bg-gray-300 rounded-full   font-bold text-xs group-hover:bg-slate-500 group-hover:text-slate-600 "
-                                    >
-                                        <Pencil className="w-4 h-4" />{' '}
-                                    </button>
+                            
+                                <div className="flex flex-col-reverse self-center w-4/6 ml-4 mt-8 space-y-reverse text-white font-medium group">
+                                    <input
+                                        className="cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white "
+                                        type="file"
+                                        name="picture"
+                                        id="picture"
+                                        
+                                    />
+                                   
                                 </div>
+
                             </div>
 
                             <form
-                                className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:m-14"
+                                className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:my-36 lg:mx-14"
                                 onSubmit={onSubmit}
                             >
                                 <InputContainer>
