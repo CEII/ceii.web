@@ -82,7 +82,7 @@ const SettingsUser: NextPage = () => {
                     </div>
 
                     <div className="relative ring-2 ring-white bg-white  w-5/6 rounded-t-xl flex flex-col items-center max-w-screen-lg lg:h-3/4 md:h-full">
-                        <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12">
+                        <div className="flex flex-col h-5/6 justify-center lg:flex-row lg:w-10/12 lg:gap-28">
                             <div className="flex flex-col mt-16 lg:mt-20 lg:mx-3">
                                 <h2 className="text-secondary text-center font-bold text-lg mb-8 ">
                                     {' '}
@@ -99,7 +99,7 @@ const SettingsUser: NextPage = () => {
                             </div>
 
                             <form
-                                className="mt-5 h-3/4 text-center flex flex-col space-y-2 text-secondary font-medium lg:w-6/12 lg:my-28 lg:mx-14"
+                                className="mt-5 h-3/4 w-3/4 self-center text-center flex flex-col space-y-2 text-secondary font-medium  lg:my-28 lg:mx-14 lg:w-4/12"
                                 onSubmit={onSubmit}
                             >
                                 <InputContainer>
@@ -136,8 +136,10 @@ const SettingsUser: NextPage = () => {
                                     />
                                 </InputContainer>
                                 <div className="flex flex-col-reverse self-center w-full space-y-reverse text-white font-medium group space-y-1">
+
                                     <input
-                                        className="cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white "
+                                        className="cursor-pointer border-2 border-accent rounded-full text-gray-700 bg-white 
+                                         "
                                         type="file"
                                         name="picture"
                                         id="picture"  
