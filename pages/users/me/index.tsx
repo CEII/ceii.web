@@ -32,13 +32,13 @@ const SettingsUser: NextPage = () => {
         if (data) console.log(data);
     }, [data]);
 
-    //  if (!session)
-    //     return (
-    //         <Protected
-    //             message="Debes iniciar sesión antes de visitar esta página"
-    //             link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
-    //         />
-    //     );
+      if (!session)
+         return (
+             <Protected
+                 message="Debes iniciar sesión antes de visitar esta página"
+                 link={{ redirectTo: '/login', pageNameOrMessage: 'Inicia sesión' }}
+             />
+         );
 
     function onChange(e: any) {
         if (!e.target.files) return;
