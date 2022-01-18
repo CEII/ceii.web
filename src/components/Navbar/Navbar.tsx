@@ -4,20 +4,35 @@
 import { FC, useState } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
+import { EyeIcon } from '@heroicons/react/solid';
+import useGuestMode from '@hooks/useGuestMode';
 
 const Navbar: FC = () => {
     const [isActive, setIsActive] = useState(false);
+    const [guest] = useGuestMode();
 
     return (
         <div className="w-full h-[6vh] p-3 sticky top-0 flex items-center justify-between bg-primary z-50">
-            <div role="button" className={`${isActive ? 'relative z-50' : ''}`} onClick={() => setIsActive(!isActive)}>
-                <div className={`transition-all ${isActive ? 'opacity-0' : ''} bg-white h-1 w-8 rounded-xl my-2`} />
+            <div className="w-full flex items-center justify-between">
                 <div
-                    className={`transition-all duration-700 ${
-                        isActive ? 'transform-gpu rotate-180 bg-primary' : 'bg-white'
-                    } h-1 w-8 rounded-xl my-2`}
-                />
-                <div className={`transition-all ${isActive ? 'opacity-0' : ''} bg-white h-1 w-8 rounded-xl my-2`} />
+                    role="button"
+                    className={`${isActive ? 'relative z-50' : ''}`}
+                    onClick={() => setIsActive(!isActive)}
+                >
+                    <div className={`transition-all ${isActive ? 'opacity-0' : ''} bg-white h-1 w-8 rounded-xl my-2`} />
+                    <div
+                        className={`transition-all duration-700 ${
+                            isActive ? 'transform-gpu rotate-180 bg-primary' : 'bg-white'
+                        } h-1 w-8 rounded-xl my-2`}
+                    />
+                    <div className={`transition-all ${isActive ? 'opacity-0' : ''} bg-white h-1 w-8 rounded-xl my-2`} />
+                </div>
+                {guest && (
+                    <h1 className="font-bold text-white flex items-center space-x-2 text-lg lg:text-xl">
+                        <EyeIcon className="h-5 w-5 md:h-6 md:w-6 lg:w-7 lg:h-7" />
+                        <span>Invitado</span>
+                    </h1>
+                )}
             </div>
             <div
                 className={`transition-all duration-500 fixed top-0 left-0 bg-black bg-opacity-80 z-40 ${

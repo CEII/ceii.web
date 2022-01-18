@@ -5,6 +5,7 @@ import CenteredContainer from '@components/Containers/CenteredContainer';
 import ConstructionFido from '@components/Icons/ConstructionFido';
 import Layout from '@components/Layout';
 import Protected from '@components/Protected';
+import useGuestMode from '@hooks/useGuestMode';
 import { GoogleProps } from 'interfaces/props';
 import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
@@ -14,8 +15,9 @@ import React from 'react';
 
 const Home: NextPage<GoogleProps> = () => {
     const { data: session } = useSession();
+    const [guest] = useGuestMode();
 
-    if (!session)
+    if (!session && !guest)
         return (
             <Protected
                 message="Debes iniciar sesión antes de visitar esta página"

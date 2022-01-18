@@ -10,9 +10,18 @@ import React from 'react';
 import encodings from '@constants/encodings';
 import Layout from '@components/Layout';
 import Developers from '@components/Developers';
+import storageService from '@services/storageService';
+import { GUEST_MODE } from '@constants/session';
+import { useRouter } from 'next/router';
 
 const Home: NextPage = () => {
     const { data: session } = useSession();
+    const router = useRouter();
+
+    function setAsGuest() {
+        storageService.set(GUEST_MODE, true);
+        router.push('/home');
+    }
 
     return (
         <>
@@ -36,9 +45,14 @@ const Home: NextPage = () => {
                                 </button>
                             </>
                         ) : (
-                            <Link href="/login">
-                                <a className="btn btn-medium btn-secondary">Inicia sesión</a>
-                            </Link>
+                            <>
+                                <Link href="/login">
+                                    <a className="btn btn-medium btn-secondary mr-2">Inicia sesión</a>
+                                </Link>
+                                <button className="btn btn-medium btn-secondary" type="button" onClick={setAsGuest}>
+                                    Ver como invitado
+                                </button>
+                            </>
                         )}
                     </nav>
                     <div className="bg-black bg-opacity-60 absolute h-full w-full z-10" />

@@ -8,17 +8,19 @@ import Head from 'next/head';
 import CourseCard from '@components/CourseCard';
 import { Switch } from '@headlessui/react';
 import { useEffect, useState } from 'react';
+import useGuestMode from '@hooks/useGuestMode';
 
 const Preu: NextPage = () => {
     const [fetchOwn, setFetchOwn] = useState(false);
     const { data: session } = useSession();
+    const [guest] = useGuestMode();
     const { data, refetch } = useQuery('courses', () => getAll({ year: new Date().getFullYear() }));
 
     useEffect(() => {
         refetch();
     }, [refetch, fetchOwn]);
 
-    if (!session)
+    if (!session && !guest)
         return (
             <Protected
                 message="Debes iniciar sesión antes de visitar esta página"
@@ -86,7 +88,7 @@ const Preu: NextPage = () => {
                                     title={title}
                                     schedule={schedule}
                                     description={description}
-                                    enabled={enabled}
+                                    enabled={enabled && !guest}
                                     isEnrolled={isEnrolled}
                                     isFiltered={fetchOwn}
                                 />
