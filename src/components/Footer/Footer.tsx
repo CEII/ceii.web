@@ -1,4 +1,10 @@
-import { faDiscord, faFacebookSquare, faGithubSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import {
+    faDiscord,
+    faFacebookSquare,
+    faGithubSquare,
+    faInstagram,
+    faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent } from 'react';
 
