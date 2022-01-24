@@ -29,7 +29,7 @@ const Home: NextPage = () => {
                 <title>CEII - UCA</title>
             </Head>
             <Layout showFooter>
-                <div className="w-full min-h-full relative">
+                <div className="w-full relative">
                     <nav className="flex justify-end p-3 absolute z-20">
                         {session ? (
                             <>
@@ -56,7 +56,7 @@ const Home: NextPage = () => {
                         )}
                     </nav>
                     <div className="bg-black bg-opacity-60 absolute h-full w-full z-10" />
-                    <div className="grid grid-cols-12 grid-rows-6 w-full min-h-full">
+                    <div className="grid grid-cols-12 grid-rows-6 w-full min-h-[92vh]">
                         <BlurredImageContainer
                             src="/img/home/todos.jpg"
                             alt="ceii"
