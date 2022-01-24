@@ -1,4 +1,4 @@
-import { faDiscord, faFacebookSquare, faGithubSquare, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faFacebookSquare, faGithubSquare, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { FunctionComponent } from 'react';
 
@@ -51,6 +51,18 @@ const Footer: FunctionComponent = () => {
                     <Icon
                         className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
                         icon={faDiscord}
+                        color="#033C71"
+                    />
+                </a>
+                <a
+                    target="_blank"
+                    href="https://www.youtube.com/channel/UCMAktOMAIZefeCMIEU_S25g"
+                    className="flex items-center justify-center group"
+                    rel="noreferrer"
+                >
+                    <Icon
+                        className="h-[1.75rem] w-[1.75rem!important] md:h-[2.25rem] md:w-[2.25rem!important] group-hover:text-accent group-hover:scale-110 smooth-transition"
+                        icon={faYoutube}
                         color="#033C71"
                     />
                 </a>
