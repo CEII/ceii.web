@@ -31,7 +31,7 @@ const Home: NextPage<GoogleProps> = () => {
                 <title>Inicio</title>
             </Head>
             <Layout showFooter showNav>
-                <CenteredContainer className="w-full h-full space-y-8" orientation="vertical">
+                <CenteredContainer className="w-full min-h-[92vh] space-y-8" orientation="vertical">
                     <CenteredContainer className="space-y-4" orientation="vertical">
                         <span className="bg-white py-1 text-accent px-5 text-xl font-bold rounded-full md:text-2xl md:px-6">
                             Ups!

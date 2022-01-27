@@ -55,7 +55,7 @@ const Register: NextPage = () => {
                 {loadStatus !== COMPONENT_STATUS.UNLOADED && (
                     <Spinner className={loadStatus === COMPONENT_STATUS.UNLOADING && 'animate-leave'} />
                 )}
-                <div className="w-screen h-full flex flex-col justify-center items-center">
+                <div className="w-screen min-h-[92vh] flex flex-col justify-center items-center">
                     <Blob className="fixed z-[-10] top-0 left-0 w-[200vw] h-auto md:w-[175vw] md:-translate-x-44 lg:w-[150vw] xl:w-screen xl:-translate-x-0 xl:-translate-y-52" />
                     <div className="mb-5 text-white">
                         <p className="text-lg font-bold lg:text-2xl">Gracias por unirte</p>

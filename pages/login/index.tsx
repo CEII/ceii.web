@@ -69,7 +69,7 @@ const Login: NextPage = () => {
                 {loadStatus !== COMPONENT_STATUS.UNLOADED && (
                     <Spinner className={loadStatus === COMPONENT_STATUS.UNLOADING && 'animate-leave'} />
                 )}
-                <div className="w-screen h-full flex items-center justify-center text-white">
+                <div className="w-screen min-h-[92vh] flex items-center justify-center text-white">
                     <Blob className="fixed z-[-10] top-0 left-0 w-[200vw] h-auto md:w-[175vw] md:-translate-x-44 lg:w-[150vw] xl:w-screen xl:-translate-x-0 xl:-translate-y-52" />
                     <form className="space-y-5 w-8/12 text-sm md:w-1/2 lg:w-1/3 xl:w-1/5" onSubmit={onSubmit}>
                         <ImageContainer

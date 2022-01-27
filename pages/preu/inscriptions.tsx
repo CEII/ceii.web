@@ -34,7 +34,7 @@ const Preu: NextPage = () => {
                 <title>PreUniversitario - {new Date().getFullYear()}</title>
             </Head>
             <Layout showFooter showNav>
-                <section className="px-8 w-full py-4 space-y-4 md:px-20 lg:w-4/5 mx-auto">
+                <section className="px-8 w-full py-4 space-y-4 md:px-20 lg:w-4/5 mx-auto min-h-[92vh] mb-[8vh]">
                     <article className="text-white text-sm font-light space-y-3 xl:space-y-0 xl:text-base">
                         <h1 className="text-2xl font-bold xl:text-4xl xl:mb-3">¡Nos encantaría que participes!</h1>
                         <p>
