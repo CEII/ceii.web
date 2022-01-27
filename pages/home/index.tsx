@@ -41,7 +41,7 @@ const Home: NextPage<GoogleProps> = () => {
                         </span>
                     </CenteredContainer>
                     <div className="w-auto">
-                        <ConstructionFido className="h-56" />
+                        <ConstructionFido className="h-[11rem] w-[11rem] md:w-56 md:h-56" />
                     </div>
                     <CenteredContainer className="space-y-4" orientation="vertical">
                         <p className="text-white italic text-lg text-center break-words w-2/3 md:text-xl">
